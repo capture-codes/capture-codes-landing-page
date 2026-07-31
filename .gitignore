@@ -4,6 +4,7 @@ node_modules/
 # Build output
 dist/
 build/
+docs/
 
 # Vite
 .vite/
@@ -37,5 +38,5 @@ npm-debug.log*
 # Temp files
 temp/
 
-# Optional: Keep docs if intentional
-# docs/
+
+
