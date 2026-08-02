@@ -44,7 +44,7 @@
       />
       <img class="logo" src={logo} alt="Capture Codes" />
       <h1 class="hero-heading">
-        Easily share photos & videos without contact details
+        Easily share photos & videos <br />without contact details
       </h1>
       <div class="hero-newsletter">
         <div class="hero-cta-col">
@@ -188,14 +188,13 @@
   .hero-heading {
     position: relative;
     z-index: 2;
-    font-size: clamp(0.9rem, 2vw, 1.4rem);
+    font-size: clamp(1.5rem, 3vw, 3rem);
     font-family: "Merriweather Sans", sans-serif;
     font-weight: 600;
     letter-spacing: 0.03em;
     color: #fff;
     margin-top: auto;
     margin-bottom: auto;
-    padding: 0 1.5rem;
   }
 
   .hero-newsletter {
@@ -370,7 +369,7 @@
     font-weight: 700;
     margin-bottom: 3rem;
     letter-spacing: -0.02em;
-    color: rgb(58, 17, 72);
+    color: rgb(91, 83, 89);
   }
 
   .steps-grid {
@@ -398,7 +397,7 @@
   .step p {
     font-size: 1rem;
     font-weight: 500;
-    color: #333;
+    color: rgb(91, 83, 89);
   }
 
   @media (max-width: 768px) {
