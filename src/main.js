@@ -1,7 +1,7 @@
-import App from './App.svelte';
+import Home from './pages/Home.svelte';
 import { mount } from 'svelte';
 
-const app = mount(App, {
+const app = mount(Home, {
   target: document.getElementById('app')
 });
 

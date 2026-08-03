@@ -5,7 +5,7 @@
 <footer>
   <div class="footer-container">
     <div class="footer-left">
-      <a href="#/" class="footer-logo-link">
+      <a href="/" class="footer-logo-link">
         <img class="footer-logo" src={logo} alt="Capture Codes" />
       </a>
       <p class="footer-tagline">
@@ -24,8 +24,8 @@
     </div>
     <div class="footer-right">
       <ul class="footer-links">
-        <li><a href="#/privacy-policy">Privacy Policy</a></li>
-        <li><a href="#/terms-of-website">Terms of Website</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Website</a></li>
       </ul>
       <p class="footer-copyright">
         &copy; {new Date().getFullYear()} Capture Codes. All rights reserved.
