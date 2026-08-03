@@ -1,11 +1,7 @@
 <script>
-  import heroBg from "../lib/assets/landing-pages/event-organisers/hero-event-organisers.jpg";
-  import howItWorks1 from "../lib/assets/landing-pages/event-photographers/how-it-works-1.jpg";
-  import howItWorks2 from "../lib/assets/landing-pages/event-photographers/how-it-works-2.jpg";
-  import howItWorks3 from "../lib/assets/landing-pages/event-photographers/how-it-works-3.jpg";
+  import heroBg from "../lib/assets/landing-pages/event-photographers/festival-videographer.jpg";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import Footer from "../lib/Footer.svelte";
-  import HowItWorks from "../lib/HowItWorks.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
 </script>
 
@@ -13,80 +9,49 @@
 
 <main>
   <section class="hero">
-    <img class="hero-bg" src={heroBg} alt="Event crowd" />
+    <img class="hero-bg" src={heroBg} alt="Contact Capture Codes" />
     <img class="logo" src={logo} alt="Capture Codes" />
-    <h1 class="hero-heading">
-      Deliver photos & videos to every attendee, effortlessly
-    </h1>
+    <h1 class="hero-heading">Contact Us</h1>
   </section>
 
   <section class="slant-section">
     <div class="slant-content">
-      <h1>Why Capture Codes?</h1>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">🔒</div>
-          <h3>Zero Data Collection</h3>
-          <p>
-            Attendees use a QR code to receive their media — no phone numbers,
-            email addresses, or personal data collected. Fully GDPR-friendly.
-          </p>
+      <h2>Get in Touch</h2>
+      <p class="intro">
+        Have questions about Capture Codes? We'd love to hear from you.
+      </p>
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <h3>Email</h3>
+          <p><a href="mailto:hello@capture.codes">hello@capture.codes</a></p>
         </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🔄</div>
-          <h3>Self-Service Registration</h3>
-          <p>
-            Attendees generate their own unique code via the web app before or
-            during the event. No staff time required.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">⚡</div>
-          <h3>Auto-Editing & Delivery</h3>
-          <p>
-            Footage can be auto-edited and automatically delivered to the right
-            person. No manual sorting or distribution.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🧑‍💼</div>
-          <h3>Reduced Staff Overhead</h3>
-          <p>
-            Eliminate the post-event scramble of matching media to attendees.
-            Let Capture Codes handle it automatically.
-          </p>
+        <div class="contact-card">
+          <div class="contact-icon">🐦</div>
+          <h3>Social Media</h3>
+          <p>Follow us for updates and announcements.</p>
+          <div class="social-links">
+            <a
+              href="https://twitter.com/capturecodes"
+              target="_blank"
+              rel="noopener">Twitter / X</a
+            >
+            <a
+              href="https://instagram.com/capturecodes"
+              target="_blank"
+              rel="noopener">Instagram</a
+            >
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <HowItWorks
-    steps={[
-      {
-        image: howItWorks1,
-        alt: "Generate a quick QR code",
-        title: "Attendees get a unique code",
-      },
-      {
-        image: howItWorks2,
-        alt: "Media is captured at the event",
-        title: "Your photographers capture the event",
-      },
-      {
-        image: howItWorks3,
-        alt: "Media auto-delivered to attendees",
-        title: "Media is automatically delivered",
-      },
-    ]}
-  />
-
-  <section class="cta-section">
-    <div class="cta-container">
-      <h2>Ready to simplify your event media?</h2>
-      <p>
-        Join the newsletter to be the first to know when Capture Codes launches.
-      </p>
-      <div class="cta-form">
+  <section class="content-section">
+    <div class="content-container">
+      <h2>Want to hear when we launch?</h2>
+      <p>Sign up to our newsletter to stay in the loop.</p>
+      <div class="newsletter-form">
         <input type="email" placeholder="Enter your email" />
         <button type="button">Submit</button>
       </div>
@@ -130,7 +95,7 @@
   .hero {
     position: relative;
     width: 100%;
-    height: 66vh;
+    height: 50vh;
     min-height: 34vh;
     overflow: hidden;
     display: flex;
@@ -161,17 +126,17 @@
   .logo {
     position: relative;
     z-index: 2;
-    max-width: 320px;
+    max-width: 280px;
     width: 100%;
     height: auto;
     padding: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .hero-heading {
     position: relative;
     z-index: 2;
-    font-size: clamp(1.5rem, 3vw, 3rem);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-family: "Merriweather Sans", sans-serif;
     font-weight: 600;
     letter-spacing: 0.03em;
@@ -190,90 +155,112 @@
   .slant-content {
     max-width: 960px;
     margin: 0 auto;
-  }
-
-  .slant-content h1 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 700;
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
     text-align: center;
   }
 
-  /* ── Benefits grid ── */
-  .benefits-grid {
+  .slant-content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    text-align: left;
   }
 
-  .benefit-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  .contact-card {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
-    padding: 1.75rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .benefit-icon {
+  .contact-icon {
     font-size: 2rem;
     margin-bottom: 0.75rem;
   }
 
-  .benefit-card h3 {
-    font-size: 1.1rem;
+  .contact-card h3 {
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: #fff;
   }
 
-  .benefit-card p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+  .contact-card p {
+    font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+  }
+
+  .contact-card a {
+    color: #f5c542;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 768px) {
-    .benefits-grid {
+    .contact-info {
       grid-template-columns: 1fr;
       gap: 1.25rem;
     }
   }
 
-  /* ── CTA section ── */
-  .cta-section {
+  /* ── Content section ── */
+  .content-section {
     background: #f9f9fb;
     padding: 4rem 1.5rem;
     text-align: center;
   }
 
-  .cta-container {
+  .content-container {
     max-width: 600px;
     margin: 0 auto;
   }
 
-  .cta-container h2 {
+  .content-container h2 {
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 700;
     color: rgb(91, 83, 89);
     margin-bottom: 0.75rem;
   }
 
-  .cta-container p {
+  .content-container p {
     font-size: 1.05rem;
     color: rgba(26, 26, 46, 0.7);
     margin-bottom: 1.5rem;
   }
 
-  .cta-form {
+  .newsletter-form {
     display: flex;
     gap: 0.75rem;
     justify-content: center;
   }
 
-  .cta-form input {
+  .newsletter-form input {
     flex: 1;
     max-width: 340px;
     padding: 0.85rem 1rem;
@@ -285,11 +272,11 @@
     transition: border-color 0.2s;
   }
 
-  .cta-form input:focus {
+  .newsletter-form input:focus {
     border-color: #7623c4;
   }
 
-  .cta-form button {
+  .newsletter-form button {
     padding: 0.85rem 1.75rem;
     border: none;
     border-radius: 8px;
@@ -304,27 +291,27 @@
     white-space: nowrap;
   }
 
-  .cta-form button:hover {
+  .newsletter-form button:hover {
     background: #8b35de;
     transform: translateY(-1px);
   }
 
-  .cta-form button:active {
+  .newsletter-form button:active {
     transform: translateY(0);
   }
 
   @media (max-width: 480px) {
-    .cta-form {
+    .newsletter-form {
       flex-direction: column;
       align-items: center;
     }
 
-    .cta-form input {
+    .newsletter-form input {
       max-width: 100%;
       width: 100%;
     }
 
-    .cta-form button {
+    .newsletter-form button {
       width: 100%;
     }
   }

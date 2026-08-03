@@ -7,7 +7,10 @@
   import cloudSvg from "../lib/assets/landing-pages/shared/capture-codes-cloud.svg";
   import Footer from "../lib/Footer.svelte";
   import HowItWorks from "../lib/HowItWorks.svelte";
+  import PieMenu from "../lib/PieMenu.svelte";
 </script>
+
+<PieMenu />
 
 <main>
   <section class="hero">

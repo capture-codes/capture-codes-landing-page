@@ -6,7 +6,10 @@
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import cloudSvg from "../lib/assets/landing-page/capture-codes-cloud.svg";
   import Footer from "../lib/Footer.svelte";
+  import PieMenu from "../lib/PieMenu.svelte";
 </script>
+
+<PieMenu />
 
 <main>
   <section class="hero">
