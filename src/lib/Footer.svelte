@@ -184,13 +184,6 @@
       gap: 2rem;
     }
 
-    .footer-right {
-      justify-content: flex-start;
-    }
-
-    .footer-links {
-      text-align: left;
-    }
   }
 
   @media (max-width: 480px) {
