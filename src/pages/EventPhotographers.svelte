@@ -1,10 +1,10 @@
 <script>
-  import festivalVideographer from "../lib/assets/landing-page/festival-videographer.jpg";
-  import howItWorks1 from "../lib/assets/landing-page/how-it-works-1.jpg";
-  import howItWorks2 from "../lib/assets/landing-page/how-it-works-2.jpg";
-  import howItWorks3 from "../lib/assets/landing-page/how-it-works-3.jpg";
+  import festivalVideographer from "../lib/assets/landing-pages/event-photographers/festival-videographer.jpg";
+  import howItWorks1 from "../lib/assets/landing-pages/event-photographers/how-it-works-1.jpg";
+  import howItWorks2 from "../lib/assets/landing-pages/event-photographers/how-it-works-2.jpg";
+  import howItWorks3 from "../lib/assets/landing-pages/event-photographers/how-it-works-3.jpg";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
-  import cloudSvg from "../lib/assets/landing-page/capture-codes-cloud.svg";
+  import cloudSvg from "../lib/assets/landing-pages/shared/capture-codes-cloud.svg";
   import Footer from "../lib/Footer.svelte";
   import HowItWorks from "../lib/HowItWorks.svelte";
 </script>
@@ -66,9 +66,9 @@
         </div>
         <div class="info-right">
           <p>
-            Attendees generate a unique code in the web app, registration can
-            be completed later. When it's time to record, they briefly flash
-            their code to the camera.
+            Attendees generate a unique code in the web app, registration can be
+            completed later. When it's time to record, they briefly flash their
+            code to the camera.
           </p>
           <br />
           <p>
@@ -78,8 +78,8 @@
           <br />
           <p>
             From there, the system detects the QR code and automatically
-            delivers the finished video directly to the attendee's Capture
-            Codes account.
+            delivers the finished video directly to the attendee's Capture Codes
+            account.
           </p>
         </div>
       </div>

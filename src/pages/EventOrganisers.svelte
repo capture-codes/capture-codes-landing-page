@@ -1,8 +1,8 @@
 <script>
-  import heroBg from "../lib/assets/landing-page/festival-videographer.jpg";
-  import howItWorks1 from "../lib/assets/landing-page/how-it-works-1.jpg";
-  import howItWorks2 from "../lib/assets/landing-page/how-it-works-2.jpg";
-  import howItWorks3 from "../lib/assets/landing-page/how-it-works-3.jpg";
+  import heroBg from "../lib/assets/landing-pages/event-organisers/hero-event-organisers.jpg";
+  import howItWorks1 from "../lib/assets/landing-pages/event-photographers/how-it-works-1.jpg";
+  import howItWorks2 from "../lib/assets/landing-pages/event-photographers/how-it-works-2.jpg";
+  import howItWorks3 from "../lib/assets/landing-pages/event-photographers/how-it-works-3.jpg";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import Footer from "../lib/Footer.svelte";
   import HowItWorks from "../lib/HowItWorks.svelte";
@@ -10,11 +10,7 @@
 
 <main>
   <section class="hero">
-    <img
-      class="hero-bg"
-      src={heroBg}
-      alt="Event crowd"
-    />
+    <img class="hero-bg" src={heroBg} alt="Event crowd" />
     <img class="logo" src={logo} alt="Capture Codes" />
     <h1 class="hero-heading">
       Deliver photos & videos to every attendee, effortlessly
@@ -45,8 +41,8 @@
           <div class="benefit-icon">⚡</div>
           <h3>Auto-Editing & Delivery</h3>
           <p>
-            Footage can be auto-edited and automatically delivered to the
-            right person. No manual sorting or distribution.
+            Footage can be auto-edited and automatically delivered to the right
+            person. No manual sorting or distribution.
           </p>
         </div>
         <div class="benefit-card">
