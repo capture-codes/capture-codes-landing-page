@@ -15,9 +15,7 @@
   <section class="hero">
     <img class="hero-bg" src={heroBg} alt="Event crowd" />
     <img class="logo" src={logo} alt="Capture Codes" />
-    <h1 class="hero-heading">
-      Deliver photos & videos to every attendee, effortlessly
-    </h1>
+    <h1 class="hero-heading">Send photos & videos without contact details</h1>
   </section>
 
   <section class="slant-section">

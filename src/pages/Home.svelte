@@ -1,10 +1,10 @@
 <script>
-  import heroBg from "../lib/assets/landing-page/festival-videographer.jpg";
-  import howItWorks1 from "../lib/assets/landing-page/how-it-works-1.jpg";
-  import howItWorks2 from "../lib/assets/landing-page/how-it-works-2.jpg";
-  import howItWorks3 from "../lib/assets/landing-page/how-it-works-3.jpg";
+  import heroBg from "../lib/assets/landing-pages/event-photographers/festival-videographer.jpg";
+  import howItWorks1 from "../lib/assets/landing-pages/event-photographers/how-it-works-1.jpg";
+  import howItWorks2 from "../lib/assets/landing-pages/event-photographers/how-it-works-2.jpg";
+  import howItWorks3 from "../lib/assets/landing-pages/event-photographers/how-it-works-3.jpg";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
-  import cloudSvg from "../lib/assets/landing-page/capture-codes-cloud.svg";
+  import cloudSvg from "../lib/assets/landing-pages/shared/capture-codes-cloud.svg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
 </script>
@@ -13,15 +13,9 @@
 
 <main>
   <section class="hero">
-    <img
-      class="hero-bg"
-      src={heroBg}
-      alt="Event crowd"
-    />
+    <img class="hero-bg" src={heroBg} alt="Event crowd" />
     <img class="logo" src={logo} alt="Capture Codes" />
-    <h1 class="hero-heading">
-      Effortless media delivery for events
-    </h1>
+    <h1 class="hero-heading">Effortless media delivery for events</h1>
   </section>
 
   <section class="slant-section">
@@ -41,8 +35,8 @@
           <div class="card-icon">🎪</div>
           <h2>Event Organisers</h2>
           <p>
-            Deliver media to every attendee effortlessly. No data
-            compliance headaches, no manual distribution.
+            Deliver media to every attendee effortlessly. No data compliance
+            headaches, no manual distribution.
           </p>
           <span class="card-link">Learn more →</span>
         </a>
@@ -77,9 +71,9 @@
         </div>
         <div class="info-right">
           <p>
-            Attendees generate a unique code in the web app, registration can
-            be completed later. When it's time to record, they briefly flash
-            their code to the camera.
+            Attendees generate a unique code in the web app, registration can be
+            completed later. When it's time to record, they briefly flash their
+            code to the camera.
           </p>
           <br />
           <p>
@@ -89,8 +83,8 @@
           <br />
           <p>
             From there, the system detects the QR code and automatically
-            delivers the finished video directly to the attendee's Capture
-            Codes account.
+            delivers the finished video directly to the attendee's Capture Codes
+            account.
           </p>
         </div>
       </div>

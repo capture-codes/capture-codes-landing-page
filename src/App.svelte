@@ -1,10 +1,10 @@
 <script>
-  import festivalVideographer from "./lib/assets/landing-page/festival-videographer.jpg";
-  import howItWorks1 from "./lib/assets/landing-page/how-it-works-1.jpg";
-  import howItWorks2 from "./lib/assets/landing-page/how-it-works-2.jpg";
-  import howItWorks3 from "./lib/assets/landing-page/how-it-works-3.jpg";
+  import festivalVideographer from "./lib/assets/landing-pages/event-photographers/festival-videographer.jpg";
+  import howItWorks1 from "./lib/assets/landing-pages/event-photographers/how-it-works-1.jpg";
+  import howItWorks2 from "./lib/assets/landing-pages/event-photographers/how-it-works-2.jpg";
+  import howItWorks3 from "./lib/assets/landing-pages/event-photographers/how-it-works-3.jpg";
   import logo from "./lib/assets/logos/capture-codes-full-line-logo.svg";
-  import cloudSvg from "./lib/assets/landing-page/capture-codes-cloud.svg";
+  import cloudSvg from "./lib/assets/landing-pages/shared/capture-codes-cloud.svg";
   import Footer from "./lib/Footer.svelte";
   import TermsWebsite from "./lib/TermsWebsite.svelte";
   import PrivacyPolicy from "./lib/PrivacyPolicy.svelte";
