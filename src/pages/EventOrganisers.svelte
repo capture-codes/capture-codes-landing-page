@@ -1,11 +1,10 @@
 <script>
   import heroBg from "../lib/assets/landing-pages/event-organisers/hero-event-organisers.jpg";
-  import howItWorks1 from "../lib/assets/landing-pages/event-photographers/how-it-works-1.jpg";
-  import howItWorks2 from "../lib/assets/landing-pages/event-photographers/how-it-works-2.jpg";
-  import howItWorks3 from "../lib/assets/landing-pages/event-photographers/how-it-works-3.jpg";
+  import howItWorks1 from "../lib/assets/landing-pages/event-organisers/how-it-works-1.jpg";
+  import howItWorks2 from "../lib/assets/landing-pages/event-organisers/how-it-works-2.jpg";
+  import howItWorks3 from "../lib/assets/landing-pages/event-organisers/how-it-works-3.jpg";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import Footer from "../lib/Footer.svelte";
-  import HowItWorks from "../lib/HowItWorks.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
 </script>
 
@@ -58,25 +57,23 @@
     </div>
   </section>
 
-  <HowItWorks
-    steps={[
-      {
-        image: howItWorks1,
-        alt: "Generate a quick QR code",
-        title: "Attendees get a unique code",
-      },
-      {
-        image: howItWorks2,
-        alt: "Media is captured at the event",
-        title: "Your photographers capture the event",
-      },
-      {
-        image: howItWorks3,
-        alt: "Media auto-delivered to attendees",
-        title: "Media is automatically delivered",
-      },
-    ]}
-  />
+  <section class="how-it-works">
+    <h2>How it works</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <img src={howItWorks1} alt="Generate a quick QR code" />
+        <p><b>Attendees get a unique code</b></p>
+      </div>
+      <div class="step">
+        <img src={howItWorks2} alt="Media is captured at the event" />
+        <p><b>Your photographers capture the event</b></p>
+      </div>
+      <div class="step">
+        <img src={howItWorks3} alt="Media auto-delivered to attendees" />
+        <p><b>Media is automatically delivered</b></p>
+      </div>
+    </div>
+  </section>
 
   <section class="cta-section">
     <div class="cta-container">
@@ -157,12 +154,14 @@
   }
 
   .logo {
-    position: relative;
+    position: absolute;
+    top: 0;
     z-index: 2;
     max-width: 320px;
     width: 100%;
     height: auto;
     padding: 2rem;
+    padding-top: 3rem;
     margin-bottom: 1.5rem;
   }
 
@@ -324,6 +323,56 @@
 
     .cta-form button {
       width: 100%;
+    }
+  }
+
+  /* ── How it works ── */
+  .how-it-works {
+    padding: 2.5rem 1.5rem 3.5rem 1.5rem;
+    text-align: center;
+    background: #f9f9fb;
+  }
+
+  .how-it-works h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+    color: rgb(91, 83, 89);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .step p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(91, 83, 89);
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
     }
   }
 </style>

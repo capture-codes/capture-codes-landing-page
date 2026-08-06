@@ -6,7 +6,6 @@
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import cloudSvg from "../lib/assets/landing-pages/shared/shared/capture-codes-cloud.svg";
   import Footer from "../lib/Footer.svelte";
-  import HowItWorks from "../lib/HowItWorks.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
 </script>
 
@@ -40,25 +39,23 @@
     </div>
   </section>
 
-  <HowItWorks
-    steps={[
-      {
-        image: howItWorks1,
-        alt: "Generate a quick QR code",
-        title: "Code is shown to camera",
-      },
-      {
-        image: howItWorks2,
-        alt: "Flash your code before filming",
-        title: "Upload video to Capture Codes",
-      },
-      {
-        image: howItWorks3,
-        alt: "Receive your video automatically",
-        title: "Video is automatically received",
-      },
-    ]}
-  />
+  <section class="how-it-works">
+    <h2>How it works</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <img src={howItWorks1} alt="Generate a quick QR code" />
+        <p><b>Code is shown to camera</b></p>
+      </div>
+      <div class="step">
+        <img src={howItWorks2} alt="Flash your code before filming" />
+        <p><b>Upload video to Capture Codes</b></p>
+      </div>
+      <div class="step">
+        <img src={howItWorks3} alt="Receive your video automatically" />
+        <p><b>Video is automatically received</b></p>
+      </div>
+    </div>
+  </section>
 
   <section class="slant-section">
     <div class="slant-content">
@@ -309,6 +306,56 @@
 
     .info-left {
       order: -1;
+    }
+  }
+
+  /* ── How it works ── */
+  .how-it-works {
+    padding: 2.5rem 1.5rem 3.5rem 1.5rem;
+    text-align: center;
+    background: #f9f9fb;
+  }
+
+  .how-it-works h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+    color: rgb(91, 83, 89);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .step p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(91, 83, 89);
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
     }
   }
 </style>
