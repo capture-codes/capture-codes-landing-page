@@ -73,6 +73,11 @@
         <p><b>Media is automatically delivered</b></p>
       </div>
     </div>
+    <p class="how-it-works-detail">
+      Capture Codes connect the attendee with their photo or video. When the
+      attendee signs up their photos are automatically sent to them. There's no
+      need for GDPR.
+    </p>
   </section>
 
   <section class="cta-section">
@@ -339,6 +344,14 @@
     margin-bottom: 3rem;
     letter-spacing: -0.02em;
     color: rgb(91, 83, 89);
+  }
+
+  .how-it-works-detail {
+    max-width: 700px;
+    margin: 2rem auto 0 auto;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(26, 26, 46, 0.7);
   }
 
   .steps-grid {
