@@ -1,12 +1,31 @@
 <script>
-  import festivalVideographer from "../lib/assets/landing-pages/event-photographers/event-photographers/festival-videographer.jpg";
+  import festivalVideographer from "../lib/assets/landing-pages/event-photographers/festival-videographer.jpg";
   import howItWorks1 from "../lib/assets/landing-pages/event-photographers/how-it-works-1.jpg";
   import howItWorks2 from "../lib/assets/landing-pages/event-photographers/how-it-works-2.jpg";
   import howItWorks3 from "../lib/assets/landing-pages/event-photographers/how-it-works-3.jpg";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
-  import cloudSvg from "../lib/assets/landing-pages/shared/shared/capture-codes-cloud.svg";
+  import cloudSvg from "../lib/assets/landing-pages/shared/capture-codes-cloud.svg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
+  import { BREVO_ACTION, subscribeToNewsletter } from "../lib/brevo.js";
+
+  let status = $state("idle"); // idle | sending | success | error
+  let message = $state("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    status = "sending";
+    try {
+      message = await subscribeToNewsletter(form);
+      status = "success";
+      form.reset();
+    } catch (error) {
+      message = error.message;
+      status = "error";
+    }
+  }
 </script>
 
 <PieMenu />
@@ -26,10 +45,44 @@
       <div class="hero-cta-col">
         <h3>Newsletter</h3>
         <p class="hero-cta-label">Want to hear when we launch?</p>
-        <div class="hero-cta-form">
-          <input type="email" placeholder="Enter your email" />
-          <button type="button">Submit</button>
-        </div>
+        <form
+          class="hero-cta-form"
+          method="POST"
+          action={BREVO_ACTION}
+          onsubmit={handleSubmit}
+        >
+          <input
+            type="email"
+            name="EMAIL"
+            placeholder="Enter your email"
+            autocomplete="email"
+            aria-label="Email address"
+            required
+          />
+          <!-- Brevo spam trap: must stay present and empty -->
+          <input
+            type="text"
+            name="email_address_check"
+            value=""
+            class="newsletter-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <input type="hidden" name="locale" value="en" />
+          <button type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Sending…" : "Submit"}
+          </button>
+        </form>
+        {#if status === "success" || status === "error"}
+          <p
+            class="newsletter-message"
+            class:is-error={status === "error"}
+            role={status === "error" ? "alert" : "status"}
+          >
+            {message}
+          </p>
+        {/if}
       </div>
     </div>
   </section>
@@ -204,12 +257,32 @@
     width: 100%;
   }
 
+  .newsletter-honeypot {
+    display: none;
+  }
+
+  .newsletter-message {
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    background: #e7faf0;
+    color: #085229;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .newsletter-message.is-error {
+    background: #ffeded;
+    color: #661d1d;
+  }
+
   .hero-cta-form input {
     flex: 1;
+    min-width: 0;
     padding: 0.75rem 1rem;
     border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.95);
+    font-family: inherit;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.2s;
@@ -225,6 +298,7 @@
     border-radius: 8px;
     background: #1a1a2e;
     color: #fff;
+    font-family: inherit;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -241,6 +315,12 @@
 
   .hero-cta-form button:active {
     transform: translateY(0);
+  }
+
+  .hero-cta-form button:disabled {
+    opacity: 0.75;
+    cursor: default;
+    transform: none;
   }
 
   @media (max-width: 480px) {
