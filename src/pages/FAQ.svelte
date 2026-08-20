@@ -48,7 +48,7 @@
           <p>
             No phone numbers, email addresses, or personal details are required
             for attendees to receive their media. The system uses the unique
-            code to route media, making it fully GDPR-friendly.
+            code to route media.
           </p>
         </div>
         <div class="faq-item">

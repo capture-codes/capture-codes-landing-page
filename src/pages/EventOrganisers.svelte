@@ -3,6 +3,7 @@
   import howItWorks1 from "../lib/assets/landing-pages/event-organisers/how-it-works-1.jpg";
   import howItWorks2 from "../lib/assets/landing-pages/event-organisers/how-it-works-2.jpg";
   import howItWorks3 from "../lib/assets/landing-pages/event-organisers/how-it-works-3.jpg";
+  import musicDemo from "../lib/assets/videos/cc-music-demo.mp4";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
@@ -82,6 +83,20 @@
     </div>
   </section>
 
+  <section class="video-demo">
+    <!-- Silent, decorative loop: muted + playsinline are what allow autoplay -->
+    <video
+      class="video-demo-player"
+      src={musicDemo}
+      autoplay
+      loop
+      muted
+      playsinline
+      disablepictureinpicture
+      aria-label="Capture Codes delivering media to attendees at a music event"
+    ></video>
+  </section>
+
   <section class="slant-section">
     <div class="slant-content">
       <h1>Why Capture Codes?</h1>
@@ -91,7 +106,7 @@
           <h3>Zero Data Collection</h3>
           <p>
             Attendees use a QR code to receive their media — no phone numbers,
-            email addresses, or personal data collected. Fully GDPR-friendly.
+            email addresses, or personal data collected.
           </p>
         </div>
         <div class="benefit-card">
@@ -140,8 +155,7 @@
     </div>
     <p class="how-it-works-detail">
       Capture Codes connect the attendee with their photo or video. When the
-      attendee signs up their photos are automatically sent to them. There's no
-      need for GDPR.
+      attendee signs up their photos are automatically sent to them.
     </p>
   </section>
 
@@ -229,6 +243,24 @@
     color: #fff;
     margin: auto 0;
     padding: 1.5rem;
+  }
+
+  /* ── Video demo ── */
+  .video-demo {
+    background: #fff;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-demo-player {
+    display: block;
+    width: 100%;
+    max-width: 960px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    background: #fff;
   }
 
   /* ── Slant section ── */
