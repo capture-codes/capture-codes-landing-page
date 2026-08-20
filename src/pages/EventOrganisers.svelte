@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from "svelte";
   import heroBg from "../lib/assets/landing-pages/event-organisers/hero-event-organisers.jpg";
   import howItWorks1 from "../lib/assets/landing-pages/event-organisers/how-it-works-1.jpg";
   import howItWorks2 from "../lib/assets/landing-pages/event-organisers/how-it-works-2.jpg";
@@ -7,9 +6,25 @@
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
-  import { loadBrevoForms } from "../lib/brevo.js";
+  import { BREVO_ACTION, subscribeToNewsletter } from "../lib/brevo.js";
 
-  onMount(loadBrevoForms);
+  let status = $state("idle"); // idle | sending | success | error
+  let message = $state("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    status = "sending";
+    try {
+      message = await subscribeToNewsletter(form);
+      status = "success";
+      form.reset();
+    } catch (error) {
+      message = error.message;
+      status = "error";
+    }
+  }
 </script>
 
 <PieMenu />
@@ -22,129 +37,47 @@
 
     <!-- Brevo newsletter form -->
     <div class="hero-newsletter">
-      <div class="sib-form" style="background-color: transparent;">
-        <div id="sib-form-container" class="sib-form-container">
-          <div
-            id="error-message"
-            class="sib-form-message-panel"
-            style="font-family:inherit; font-size:15px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:8px;"
+      <div class="hero-cta-col">
+        <h3>Ready to simplify your event media?</h3>
+        <p class="hero-cta-label">Signup to be notified when we launch.</p>
+        <form
+          class="hero-cta-form"
+          method="POST"
+          action={BREVO_ACTION}
+          onsubmit={handleSubmit}
+        >
+          <input
+            type="email"
+            name="EMAIL"
+            placeholder="Enter your email"
+            autocomplete="email"
+            aria-label="Email address"
+            required
+          />
+          <!-- Brevo spam trap: must stay present and empty -->
+          <input
+            type="text"
+            name="email_address_check"
+            value=""
+            class="newsletter-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <input type="hidden" name="locale" value="en" />
+          <button type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Sending…" : "Subscribe"}
+          </button>
+        </form>
+        {#if status === "success" || status === "error"}
+          <p
+            class="newsletter-message"
+            class:is-error={status === "error"}
+            role={status === "error" ? "alert" : "status"}
           >
-            <div
-              class="sib-form-message-panel__text sib-form-message-panel__text--center"
-            >
-              <svg
-                viewBox="0 0 512 512"
-                class="sib-icon sib-notification__icon"
-              >
-                <path
-                  d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"
-                />
-              </svg>
-              <span class="sib-form-message-panel__inner-text">
-                Your subscription could not be saved. Please try again.
-              </span>
-            </div>
-          </div>
-          <div></div>
-          <div
-            id="success-message"
-            class="sib-form-message-panel"
-            style="font-family:inherit; font-size:15px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:8px;"
-          >
-            <div
-              class="sib-form-message-panel__text sib-form-message-panel__text--center"
-            >
-              <svg
-                viewBox="0 0 512 512"
-                class="sib-icon sib-notification__icon"
-              >
-                <path
-                  d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"
-                />
-              </svg>
-              <span class="sib-form-message-panel__inner-text">
-                Your subscription has been successful.
-              </span>
-            </div>
-          </div>
-          <div></div>
-          <div
-            id="sib-container"
-            class="sib-container--large sib-container--vertical"
-            style="text-align:left; background-color:rgba(118,35,196,0.8); border-width:0px; border-radius:12px; direction:ltr"
-          >
-            <form
-              id="sib-form"
-              method="POST"
-              action="https://8661365e.sibforms.com/serve/MUIFAAn3YPr-NqTlfwi5YV9aB5So8bsipI26OjjAgD8T6rbRl1UXMtxK9dQtayr4L1iTm20_RYHC-TB4oUZerdzZUiCWRBDevyEIe5GOvqhV1B06jDHUH2cHd04UROQ-HQRVh85Wb0vJE-mnYvMmFzHxnv2QzYrLmH9AXfOubKggHCbTKOVBdXEGQxono-qJpQBne7ck9zsEIVA8TQ=="
-              data-type="subscription"
-            >
-              <div class="sib-form-block hero-form-heading">
-                <h3>Ready to simplify your event media?</h3>
-              </div>
-
-              <div class="sib-form-block hero-form-text">
-                <div class="sib-text-form-block">
-                  <p>Signup to be notified when we launch.</p>
-                </div>
-              </div>
-
-              <div class="hero-cta-form">
-                <div class="sib-input sib-form-block">
-                  <div class="form__entry entry_block">
-                    <div class="form__label-row">
-                      <div class="entry__field">
-                        <input
-                          class="input"
-                          type="text"
-                          id="EMAIL"
-                          name="EMAIL"
-                          autocomplete="email"
-                          value=""
-                          placeholder="Enter your email"
-                          data-required="true"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <label
-                      for="EMAIL"
-                      class="entry__error entry__error--primary"
-                      style="font-family:inherit; font-size:14px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:6px;"
-                    ></label>
-                  </div>
-                </div>
-
-                <div class="sib-form-block hero-cta-submit">
-                  <button
-                    class="sib-form-block__button sib-form-block__button-with-loader"
-                    style="font-family:inherit; font-size:1rem; font-weight:600; color:#FFFFFF; background-color:#1a1a2e; border-width:0px; border-radius:8px;"
-                    form="sib-form"
-                    type="submit"
-                  >
-                    <svg
-                      class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
-                      viewBox="0 0 512 512"
-                    >
-                      <path
-                        d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"
-                      />
-                    </svg>
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-
-              <input
-                type="text"
-                name="email_address_check"
-                value=""
-                class="input--hidden"
-              />
-              <input type="hidden" name="locale" value="en" />
-            </form>
-          </div>
-        </div>
+            {message}
+          </p>
+        {/if}
       </div>
     </div>
   </section>
@@ -362,7 +295,7 @@
     }
   }
 
-  /* ── Hero newsletter (Brevo) ── */
+  /* ── Hero newsletter ── */
   .hero-newsletter {
     position: relative;
     z-index: 2;
@@ -372,63 +305,57 @@
     text-align: left;
   }
 
-  .hero-newsletter :global(.sib-form) {
-    padding: 0;
-  }
-
-  .hero-newsletter :global(.sib-form-container) {
-    max-width: 100%;
-  }
-
-  .hero-newsletter :global(#sib-container) {
-    max-width: 100%;
-    padding: 1.25rem;
-  }
-
-  .hero-newsletter :global(#sib-form) {
+  .hero-cta-col {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
+    background: #7623c4cc;
+    padding: 1.25rem;
+    border-radius: 12px;
+    color: #fff;
   }
 
-  .hero-newsletter :global(.sib-form-block) {
-    padding: 0;
-  }
-
-  .hero-newsletter :global(.hero-form-heading h3) {
+  .hero-cta-col h3 {
     font-size: clamp(1.15rem, 2.2vw, 1.4rem);
     font-weight: 700;
     line-height: 1.35;
     color: #fff;
   }
 
-  .hero-newsletter :global(.hero-form-text p) {
+  .hero-cta-label {
     font-size: 0.95rem;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.9);
   }
 
-  .hero-newsletter :global(.hero-cta-form) {
+  .hero-cta-form {
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
     width: 100%;
   }
 
-  .hero-newsletter :global(.hero-cta-form .sib-input) {
+  .newsletter-honeypot {
+    display: none;
+  }
+
+  .newsletter-message {
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    background: #e7faf0;
+    color: #085229;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .newsletter-message.is-error {
+    background: #ffeded;
+    color: #661d1d;
+  }
+
+  .hero-cta-form input {
     flex: 1;
     min-width: 0;
-  }
-
-  .hero-newsletter :global(.hero-cta-form .form__entry),
-  .hero-newsletter :global(.hero-cta-form .form__label-row),
-  .hero-newsletter :global(.hero-cta-form .entry__field) {
-    width: 100%;
-    margin: 0;
-  }
-
-  .hero-newsletter :global(.hero-cta-form input.input) {
-    width: 100%;
     padding: 0.75rem 1rem;
     border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 8px;
@@ -441,16 +368,23 @@
     transition: border-color 0.2s;
   }
 
-  .hero-newsletter :global(.hero-cta-form input.input::placeholder) {
+  .hero-cta-form input::placeholder {
     color: #8b8b9e;
   }
 
-  .hero-newsletter :global(.hero-cta-form input.input:focus) {
+  .hero-cta-form input:focus {
     border-color: #fff;
   }
 
-  .hero-newsletter :global(.sib-form-block__button) {
+  .hero-cta-form button {
     padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #1a1a2e;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.2;
     cursor: pointer;
     white-space: nowrap;
@@ -459,22 +393,27 @@
       transform 0.1s;
   }
 
-  .hero-newsletter :global(.sib-form-block__button:hover) {
-    background: #333 !important;
+  .hero-cta-form button:hover {
+    background: #333;
     transform: translateY(-1px);
   }
 
-  .hero-newsletter :global(.sib-form-block__button:active) {
+  .hero-cta-form button:active {
     transform: translateY(0);
   }
 
+  .hero-cta-form button:disabled {
+    opacity: 0.75;
+    cursor: default;
+    transform: none;
+  }
+
   @media (max-width: 480px) {
-    .hero-newsletter :global(.hero-cta-form) {
+    .hero-cta-form {
       flex-direction: column;
     }
 
-    .hero-newsletter :global(.hero-cta-submit),
-    .hero-newsletter :global(.hero-cta-form .sib-form-block__button) {
+    .hero-cta-form button {
       width: 100%;
     }
   }
