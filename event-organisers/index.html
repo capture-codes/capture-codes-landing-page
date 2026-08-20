@@ -20,9 +20,65 @@
     <meta name="twitter:title" content="Capture Codes — For Event Organisers" />
     <meta name="twitter:description" content="Deliver photos & videos to every attendee effortlessly. No contact details needed." />
     <meta name="twitter:image" content="https://capture.codes/preview-image.jpg" />
+
+    <!-- Brevo form styles -->
+    <style>
+      :where(.sib-form-message-panel) {
+        display: none;
+      }
+
+      :where(.sib-form-message-panel .sib-notification__icon) {
+        width: 20px;
+        height: 20px;
+      }
+
+      #sib-container input:-ms-input-placeholder {
+        text-align: left;
+        color: #8b8b9e;
+      }
+
+      #sib-container input::placeholder {
+        text-align: left;
+        color: #8b8b9e;
+      }
+
+      #sib-container a {
+        text-decoration: underline;
+        color: #ffffff;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://sibforms.com/forms/end-form/build/sib-styles.css"
+    />
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/eventOrganisers.js"></script>
+
+    <!-- Brevo form runtime -->
+    <script>
+      window.REQUIRED_CODE_ERROR_MESSAGE = "Please choose a country code";
+      window.LOCALE = "en";
+      window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE =
+        "The information provided is invalid. Please review the field format and try again.";
+      window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+      window.GENERIC_INVALID_MESSAGE =
+        "The information provided is invalid. Please review the field format and try again.";
+      window.INVALID_NUMBER =
+        "The information provided is invalid. Please review the field format and try again.";
+      window.INVALID_DATE = "Please enter a valid date";
+      window.REQUIRED_MULTISELECT_MESSAGE = "Please select at least 1 option";
+      window.translation = {
+        common: {
+          selectedList: "{quantity} list selected",
+          selectedLists: "{quantity} lists selected",
+          selectedOption: "{quantity} selected",
+          selectedOptions: "{quantity} selected",
+        },
+      };
+      var AUTOHIDE = Boolean(0);
+    </script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
   </body>
 </html>
