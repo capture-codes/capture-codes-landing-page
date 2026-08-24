@@ -131,8 +131,10 @@
           <div class="benefit-icon">🔒</div>
           <h3>Zero Data Collection</h3>
           <p>
-            Attendees use a QR code to receive their media — no phone numbers,
-            email addresses, or personal data collected.
+            Attendees use a QR code to receive their media. The QR code links
+            their account with the footage so there's no need to take phone
+            numbers, email addresses, or social handles. It's fast and hassle
+            free.
           </p>
         </div>
         <div class="benefit-card">
@@ -147,8 +149,10 @@
           <div class="benefit-icon">⚡</div>
           <h3>Auto-Editing & Delivery</h3>
           <p>
-            Footage can be auto-edited and automatically delivered to the right
-            person. No manual sorting or distribution.
+            Footage can be automatically framed, cut or left plain. Generative
+            AI can be used to add to the video. Branding inserted or overlayed.
+            As soon as the edits are completed the system automatically sends
+            the footage to the attendee.
           </p>
         </div>
         <div class="benefit-card">
@@ -157,6 +161,25 @@
           <p>
             Eliminate the post-event scramble of matching media to attendees.
             Let Capture Codes handle it automatically.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔒</div>
+          <h3>Beyond the Highlight Reel</h3>
+          <p>
+            You capture hundreds of moments, but only a few make it to your
+            social media. Capture Codes automatically delivers personal photos
+            and videos directly to your attendees, so no memory gets left on the
+            cutting room floor.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔒</div>
+          <h3>Direct Attendee Delivery</h3>
+          <p>
+            Stop letting amazing crowd shots go to waste on a hard drive.
+            Instantly route personal event photos straight to the attendees who
+            are actually in them, completely hassle-free.
           </p>
         </div>
       </div>
@@ -168,7 +191,9 @@
     <p class="contact-intro">
       Have questions or want to learn more? We'd love to hear from you.
     </p>
-    <a class="contact-email" href="mailto:hello@capture.codes">hello@capture.codes</a>
+    <a class="contact-email" href="mailto:hello@capture.codes"
+      >hello@capture.codes</a
+    >
   </section>
 
   <Footer />
