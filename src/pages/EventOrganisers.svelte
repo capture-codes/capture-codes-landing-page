@@ -84,6 +84,7 @@
   </section>
 
   <section class="video-demo">
+    <h2 class="video-demo-title">Watch it in action</h2>
     <!-- Silent, decorative loop: muted + playsinline are what allow autoplay -->
     <video
       class="video-demo-player"
@@ -95,6 +96,28 @@
       disablepictureinpicture
       aria-label="Capture Codes delivering media to attendees at a music event"
     ></video>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How it works</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <img src={howItWorks1} alt="Generate a quick QR code" />
+        <p><b>Attendees get a unique code</b></p>
+      </div>
+      <div class="step">
+        <img src={howItWorks2} alt="Media is captured at the event" />
+        <p><b>Your photographers capture the event</b></p>
+      </div>
+      <div class="step">
+        <img src={howItWorks3} alt="Media auto-delivered to attendees" />
+        <p><b>Media is automatically delivered</b></p>
+      </div>
+    </div>
+    <p class="how-it-works-detail">
+      Capture Codes connect the attendee with their photo or video. When the
+      attendee signs up their photos are automatically sent to them.
+    </p>
   </section>
 
   <section class="slant-section">
@@ -135,28 +158,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="how-it-works">
-    <h2>How it works</h2>
-    <div class="steps-grid">
-      <div class="step">
-        <img src={howItWorks1} alt="Generate a quick QR code" />
-        <p><b>Attendees get a unique code</b></p>
-      </div>
-      <div class="step">
-        <img src={howItWorks2} alt="Media is captured at the event" />
-        <p><b>Your photographers capture the event</b></p>
-      </div>
-      <div class="step">
-        <img src={howItWorks3} alt="Media auto-delivered to attendees" />
-        <p><b>Media is automatically delivered</b></p>
-      </div>
-    </div>
-    <p class="how-it-works-detail">
-      Capture Codes connect the attendee with their photo or video. When the
-      attendee signs up their photos are automatically sent to them.
-    </p>
   </section>
 
   <Footer />
@@ -250,7 +251,17 @@
     background: #fff;
     padding: 3rem 1.5rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .video-demo-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: rgb(91, 83, 89);
   }
 
   .video-demo-player {
