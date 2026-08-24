@@ -23,15 +23,18 @@
 
 <footer>
   <div class="footer-container">
-    <div class="footer-left">
-      <a href="/" class="footer-logo-link">
-        <img class="footer-logo" src={logo} alt="Capture Codes" />
-      </a>
-      <p class="footer-tagline">
-        Easily share photos & videos without contact details
-      </p>
-      <div class="footer-newsletter">
-        <h4>Newsletter</h4>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-link" aria-label="Capture Codes home">
+          <img class="footer-logo" src={logo} alt="Capture Codes" />
+        </a>
+        <p class="footer-tagline">
+          Easily share photos & videos without contact details
+        </p>
+      </div>
+
+      <div class="footer-col footer-newsletter">
+        <h4 class="footer-col-title">Stay in the loop</h4>
         <p class="footer-newsletter-label">
           Signup to be notified when we launch
         </p>
@@ -74,12 +77,20 @@
           </p>
         {/if}
       </div>
+
+      <nav class="footer-col footer-col--right" aria-label="Explore">
+        <h4 class="footer-col-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Website</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="footer-right">
-      <ul class="footer-links">
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Website</a></li>
-      </ul>
+
+    <div class="footer-bottom">
       <p class="footer-copyright">
         &copy; {new Date().getFullYear()} Capture Codes. All rights reserved.
       </p>
@@ -91,20 +102,22 @@
   footer {
     background: #331153;
     color: #fff;
-    padding: 3rem 1.5rem;
-    margin-top: -3rem;
-    padding-top: calc(3rem + 3rem);
+    padding: 4rem 1.5rem 2rem;
   }
 
   .footer-container {
-    max-width: 960px;
+    max-width: 1120px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
   }
 
-  .footer-left {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1.4fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .footer-brand {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -112,44 +125,76 @@
 
   .footer-logo-link {
     display: inline-block;
+    width: fit-content;
   }
 
   .footer-logo {
-    max-width: 220px;
+    width: 200px;
+    max-width: 100%;
     height: auto;
   }
 
   .footer-tagline {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
     margin: 0;
+    max-width: 24rem;
+    line-height: 1.6;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .footer-col--right {
+    text-align: right;
+  }
+
+  .footer-col-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #f5c542;
   }
 
   .footer-newsletter {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background: #f5c542;
-    padding: 1.5rem;
-    border-radius: 12px;
+    gap: 0.6rem;
   }
 
-  .footer-newsletter h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0;
-    color: #331153;
-  }
-
-  .footer-newsletter .footer-newsletter-label {
+  .footer-newsletter-label {
     font-size: 0.9rem;
-    color: #4a1e6b;
+    color: rgba(255, 255, 255, 0.65);
     margin: 0;
   }
 
   .footer-newsletter-form {
     display: flex;
     gap: 0.5rem;
+    margin-top: 0.25rem;
   }
 
   .newsletter-honeypot {
@@ -174,45 +219,48 @@
   .footer-newsletter-form input {
     flex: 1;
     min-width: 0;
-    padding: 0.65rem 0.75rem;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
-    background: #fff;
-    color: #1a1a2e;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
     font-family: inherit;
     font-size: 0.9rem;
     outline: none;
     box-shadow: none;
-    transition: border-color 0.2s;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
   }
 
   .footer-newsletter-form input::placeholder {
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.45);
   }
 
   .footer-newsletter-form input:focus {
-    border-color: #7623c4;
+    border-color: #f5c542;
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .footer-newsletter-form button {
-    padding: 0.65rem 1.25rem;
+    padding: 0.7rem 1.25rem;
     border: none;
-    border-radius: 6px;
-    background: #7623c4;
-    color: #fff;
+    border-radius: 8px;
+    background: #f5c542;
+    color: #331153;
     font-family: inherit;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
     cursor: pointer;
+    white-space: nowrap;
     transition:
       background 0.2s,
       transform 0.1s;
-    white-space: nowrap;
   }
 
   .footer-newsletter-form button:hover {
-    background: #8b35de;
+    background: #ffd763;
     transform: translateY(-1px);
   }
 
@@ -226,50 +274,30 @@
     transform: none;
   }
 
-  .footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: right;
-  }
-
-  .footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover {
-    color: #fff;
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 1.5rem;
   }
 
   .footer-copyright {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
-    margin-top: 0.5rem;
   }
 
-  @media (max-width: 768px) {
-    .footer-container {
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .footer-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
-  }
-
-  @media (max-width: 480px) {
     .footer-newsletter-form {
       flex-direction: column;
     }

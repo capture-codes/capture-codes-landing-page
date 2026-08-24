@@ -163,6 +163,14 @@
     </div>
   </section>
 
+  <section class="contact">
+    <h2>Contact</h2>
+    <p class="contact-intro">
+      Have questions or want to learn more? We'd love to hear from you.
+    </p>
+    <a class="contact-email" href="mailto:hello@capture.codes">hello@capture.codes</a>
+  </section>
+
   <Footer />
 </main>
 
@@ -580,5 +588,46 @@
       grid-template-columns: 1fr;
       max-width: 420px;
     }
+  }
+
+  /* ── Contact ── */
+  .contact {
+    background: #f9f9fb;
+    padding: 5rem 1.5rem 4rem 1.5rem;
+    text-align: center;
+  }
+
+  .contact h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: rgb(91, 83, 89);
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(26, 26, 46, 0.7);
+    max-width: 560px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: #7623c4;
+    text-decoration: none;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid rgba(118, 35, 196, 0.25);
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+  }
+
+  .contact-email:hover {
+    color: #8b35de;
+    border-color: #8b35de;
   }
 </style>
