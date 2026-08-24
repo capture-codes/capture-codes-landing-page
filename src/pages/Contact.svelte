@@ -1,5 +1,5 @@
 <script>
-  import heroBg from "../lib/assets/landing-pages/event-photographers/event-photographers/festival-videographer.jpg";
+  import heroBg from "../lib/assets/landing-pages/event-organisers/hero-event-organisers.jpg";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";

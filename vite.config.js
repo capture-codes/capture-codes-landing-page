@@ -14,7 +14,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        'event-photographers': resolve(__dirname, 'event-photographers/index.html'),
         'event-organisers': resolve(__dirname, 'event-organisers/index.html'),
         terms: resolve(__dirname, 'terms/index.html'),
         privacy: resolve(__dirname, 'privacy/index.html'),
