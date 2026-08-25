@@ -108,7 +108,7 @@
         <img src={howItWorks1} alt="Generate a quick QR code" />
         <p><b>Attendees get a unique code</b></p>
       </div>
-      <div class="step">
+      <div class="step step--reverse">
         <img src={howItWorks2} alt="Media is captured at the event" />
         <p><b>Your photographers capture the event</b></p>
       </div>
@@ -581,8 +581,8 @@
   }
 
   .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     max-width: 960px;
     margin: 0 auto;
@@ -590,27 +590,41 @@
 
   .step {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .step--reverse {
+    flex-direction: row-reverse;
   }
 
   .step img {
-    width: 100%;
+    flex: 0 0 320px;
+    width: 320px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 12px;
-    margin-bottom: 1rem;
   }
 
   .step p {
-    font-size: 1rem;
+    flex: 1;
+    font-size: 1.1rem;
     font-weight: 500;
     color: rgb(91, 83, 89);
   }
 
   @media (max-width: 768px) {
-    .steps-grid {
-      grid-template-columns: 1fr;
+    .step {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .step img {
+      flex: none;
+      width: 100%;
       max-width: 420px;
     }
   }
