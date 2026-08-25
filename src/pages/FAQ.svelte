@@ -11,7 +11,9 @@
   <section class="hero">
     <img class="hero-bg" src={heroBg} alt="FAQ" />
     <img class="logo" src={logo} alt="Capture Codes" />
-    <h1 class="hero-heading">Frequently Asked Questions</h1>
+    <div class="hero-copy">
+      <h1 class="hero-heading">Frequently Asked Questions</h1>
+    </div>
   </section>
 
   <section class="slant-section">
@@ -116,23 +118,47 @@
   .hero {
     position: relative;
     width: 100%;
-    height: 50vh;
-    min-height: 34vh;
+    min-height: 70vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     color: #fff;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
+    margin-bottom: -3rem;
   }
 
   .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
+    background:
+      radial-gradient(
+        120% 90% at 50% 20%,
+        rgba(26, 26, 46, 0) 0%,
+        rgba(26, 26, 46, 0.4) 55%,
+        rgba(26, 26, 46, 0.78) 100%
+      ),
+      linear-gradient(
+        160deg,
+        rgba(118, 35, 196, 0.38) 0%,
+        rgba(26, 26, 46, 0.28) 50%,
+        rgba(26, 26, 46, 0.72) 100%
+      );
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .hero-bg {
@@ -142,26 +168,51 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    filter: saturate(1.05) contrast(1.03);
+    animation: hero-zoom 22s ease-out forwards;
+  }
+
+  @keyframes hero-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.08);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg {
+      animation: none;
+    }
   }
 
   .logo {
     position: relative;
     z-index: 2;
-    max-width: 280px;
+    max-width: 320px;
     width: 100%;
     height: auto;
     padding: 2rem;
-    margin-bottom: 0.5rem;
+    padding-top: 3rem;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin: auto 0;
+    padding: 1.5rem;
   }
 
   .hero-heading {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1.5rem, 3vw, 3rem);
     font-family: "Merriweather Sans", sans-serif;
     font-weight: 600;
     letter-spacing: 0.03em;
     color: #fff;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+    text-wrap: balance;
   }
 
   /* ── Slant section ── */
