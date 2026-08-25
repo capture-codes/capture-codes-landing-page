@@ -208,21 +208,19 @@
         <a class="contact-email" href="mailto:hello@capture.codes"
           >hello@capture.codes</a
         >
-        <p class="contact-note">We usually reply within a few days.</p>
       </div>
 
       <div class="contact-card founder">
-        <h3>Meet the founder</h3>
         <img
           class="founder-photo"
           src={garethGriffiths}
           alt="Gareth Griffiths, founder of Capture Codes"
         />
+        <h3>Meet the founder</h3>
         <p class="founder-bio">
           Capture Codes was founded by Gareth Griffiths to make event media
-          delivery effortless — no contact details, no manual sorting, no lost
-          photos. If you'd like to chat about the product or partner on an
-          event, connect with Gareth on LinkedIn.
+          delivery effortless. If you'd like to chat about the product or
+          partner on an event, connect with Gareth on LinkedIn.
         </p>
         <a
           class="founder-linkedin"
@@ -748,14 +746,14 @@
   .contact-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
+    justify-content: top;
+    align-items: center;
+    text-align: justify;
   }
 
   .contact-icon {
-    width: 36px;
-    height: 36px;
+    width: 140px;
+    height: 140px;
     color: #7623c4;
     margin-bottom: 1.25rem;
   }
@@ -781,7 +779,6 @@
     color: #7623c4;
     text-decoration: none;
     padding-bottom: 0.2rem;
-    border-bottom: 2px solid rgba(118, 35, 196, 0.25);
     transition:
       color 0.2s,
       border-color 0.2s;
@@ -807,8 +804,9 @@
   }
 
   .founder h3 {
-    font-size: 1.4rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 700;
+    letter-spacing: -0.02em;
     color: #393d6c;
     margin-bottom: 1.25rem;
   }
@@ -828,6 +826,7 @@
     color: rgba(26, 26, 46, 0.7);
     margin: 0 auto 1.5rem auto;
     max-width: 400px;
+    text-align: justify;
   }
 
   .founder-linkedin {
