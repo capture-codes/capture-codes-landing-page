@@ -106,21 +106,35 @@
     <div class="steps-grid">
       <div class="step">
         <img src={howItWorks1} alt="Generate a quick QR code" />
-        <p><b>Attendees get a unique code</b></p>
+        <div class="step-text">
+          <h3>QR Code</h3>
+          <p>
+            Attendees get a unique QR code. Its automatically generated and they
+            can signup later.
+          </p>
+        </div>
       </div>
       <div class="step step--reverse">
         <img src={howItWorks2} alt="Media is captured at the event" />
-        <p><b>Your photographers capture the event</b></p>
+        <div class="step-text">
+          <h3>Photos &amp; Videos</h3>
+          <p>
+            The photographer captures photos and videos ensuring the QR code is
+            visible.
+          </p>
+        </div>
       </div>
       <div class="step">
         <img src={howItWorks3} alt="Media auto-delivered to attendees" />
-        <p><b>Media is automatically delivered</b></p>
+        <div class="step-text">
+          <h3>Automated Sending</h3>
+          <p>
+            Once the footage is uploaded to Capture Codes the system
+            automatically sends it to the registered users.
+          </p>
+        </div>
       </div>
     </div>
-    <p class="how-it-works-detail">
-      Capture Codes connect the attendee with their photo or video. When the
-      attendee signs up their photos are automatically sent to them.
-    </p>
   </section>
 
   <section class="slant-section">
@@ -149,18 +163,9 @@
           <div class="benefit-icon">⚡</div>
           <h3>Auto-Editing & Delivery</h3>
           <p>
-            Footage can be automatically framed, cut or left plain. Generative
-            AI can be used to add to the video. Branding inserted or overlayed.
-            As soon as the edits are completed the system automatically sends
-            the footage to the attendee.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🧑‍💼</div>
-          <h3>Reduced Staff Overhead</h3>
-          <p>
-            Eliminate the post-event scramble of matching media to attendees.
-            Let Capture Codes handle it automatically.
+            Automated framing, edits or logo insertion. Or take it up a level
+            with generative AI. Once the edits are completed the system
+            automatically sends the footage.
           </p>
         </div>
         <div class="benefit-card">
@@ -169,17 +174,8 @@
           <p>
             You capture hundreds of moments, but only a few make it to your
             social media. Capture Codes automatically delivers personal photos
-            and videos directly to your attendees, so no memory gets left on the
-            cutting room floor.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🔒</div>
-          <h3>Direct Attendee Delivery</h3>
-          <p>
-            Stop letting amazing crowd shots go to waste on a hard drive.
-            Instantly route personal event photos straight to the attendees who
-            are actually in them, completely hassle-free.
+            and videos directly to your attendees. Your event's reach grows
+            organically.
           </p>
         </div>
       </div>
@@ -562,6 +558,7 @@
     padding: 2.5rem 1.5rem 3.5rem 1.5rem;
     text-align: center;
     background: #f9f9fb;
+    overflow: hidden;
   }
 
   .how-it-works h2 {
@@ -583,15 +580,14 @@
   .steps-grid {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
     max-width: 960px;
     margin: 0 auto;
   }
 
   .step {
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    align-items: stretch;
     text-align: left;
   }
 
@@ -600,18 +596,40 @@
   }
 
   .step img {
-    flex: 0 0 320px;
-    width: 320px;
+    position: relative;
+    z-index: 1;
+    flex: 0 0 50%;
+    width: 50%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 12px;
   }
 
-  .step p {
+  .step-text {
+    position: relative;
+    z-index: 0;
     flex: 1;
-    font-size: 1.1rem;
-    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: -15px -30px;
+    padding: 2.5rem;
+    background: #ece7f5;
+  }
+
+  .step-text h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 40px 40px 0;
     color: rgb(91, 83, 89);
+  }
+
+  .step-text p {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 40px;
+    color: rgba(26, 26, 46, 0.7);
   }
 
   @media (max-width: 768px) {
@@ -626,6 +644,21 @@
       flex: none;
       width: 100%;
       max-width: 420px;
+    }
+
+    .step-text {
+      display: block;
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+
+    .step-text h3 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    .step-text p {
+      margin: 0;
     }
   }
 
