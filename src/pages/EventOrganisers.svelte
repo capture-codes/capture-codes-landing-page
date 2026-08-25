@@ -364,9 +364,9 @@
 
   /* ── Slant section ── */
   .slant-section {
-    background: #7623c4;
+    background: linear-gradient(180deg, #9fa2c2 0%, #282a3f 100%);
     color: #fff;
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem calc(4rem + 75px);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
     margin-bottom: -3rem;
   }
@@ -614,14 +614,14 @@
     justify-content: center;
     margin: -15px -30px;
     padding: 2.5rem;
-    background: #ece7f5;
+    background: #8185b2;
   }
 
   .step-text h3 {
     font-size: 1.35rem;
     font-weight: 700;
     margin: 40px 40px 0;
-    color: rgb(91, 83, 89);
+    color: rgb(255, 255, 255);
   }
 
   .step-text p {
@@ -629,7 +629,7 @@
     font-weight: 400;
     line-height: 1.6;
     margin: 40px;
-    color: rgba(26, 26, 46, 0.7);
+    color: rgba(252, 252, 253, 0.7);
   }
 
   @media (max-width: 768px) {
