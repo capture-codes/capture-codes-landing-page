@@ -349,7 +349,7 @@
     font-weight: 700;
     letter-spacing: -0.02em;
     text-align: center;
-    color: rgb(91, 83, 89);
+    color: #393d6c;
   }
 
   .video-demo-player {
@@ -566,7 +566,7 @@
     font-weight: 700;
     margin-bottom: 3rem;
     letter-spacing: -0.02em;
-    color: rgb(91, 83, 89);
+    color: #393d6c;
   }
 
   .how-it-works-detail {
@@ -673,7 +673,7 @@
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: rgb(91, 83, 89);
+    color: #393d6c;
     margin-bottom: 0.75rem;
   }
 
