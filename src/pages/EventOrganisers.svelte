@@ -643,20 +643,21 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 1rem;
     }
 
     .step img {
       flex: none;
-      width: 100%;
-      max-width: 420px;
+      width: 90%;
+      max-width: 378px;
     }
 
     .step-text {
       display: block;
-      margin: 0;
-      padding: 0;
-      background: none;
+      width: 100%;
+      max-width: 420px;
+      margin: -100px 0 0 0;
+      padding: 120px 2.5rem 2.5rem;
+      background: #8185b2;
     }
 
     .step-text h3 {
