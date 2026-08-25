@@ -48,7 +48,7 @@
     <div class="hero-newsletter">
       <div class="hero-cta-col">
         <h3>Ready to simplify your event media?</h3>
-        <p class="hero-cta-label">Signup to be notified when we launch.</p>
+        <p class="hero-cta-label">Signup to be notified when we launch</p>
         <form
           class="hero-cta-form"
           method="POST"
@@ -188,47 +188,63 @@
   </section>
 
   <section class="contact">
-    <h2>Contact</h2>
-    <p class="contact-intro">
-      Have questions or want to learn more? We'd love to hear from you.
-    </p>
-    <a class="contact-email" href="mailto:hello@capture.codes"
-      >hello@capture.codes</a
-    >
-
-    <div class="founder">
-      <h3>Meet the founder</h3>
-      <img
-        class="founder-photo"
-        src={garethGriffiths}
-        alt="Gareth Griffiths, founder of Capture Codes"
-      />
-      <p class="founder-bio">
-        Capture Codes was founded by Gareth Griffiths to make event media
-        delivery effortless — no contact details, no manual sorting, no lost
-        photos. If you'd like to chat about the product or partner on an event,
-        connect with Gareth on LinkedIn.
-      </p>
-      <a
-        class="founder-linkedin"
-        href="https://www.linkedin.com/in/gngriffiths/"
-        target="_blank"
-        rel="noopener"
-      >
+    <div class="contact-grid">
+      <div class="contact-card contact-info">
         <svg
+          class="contact-icon"
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
           viewBox="0 0 24 24"
           fill="currentColor"
           aria-hidden="true"
         >
           <path
-            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
           />
         </svg>
-        Connect on LinkedIn
-      </a>
+        <h2>Contact</h2>
+        <p class="contact-intro">
+          Have questions or want to learn more? We'd love to hear from you.
+        </p>
+        <a class="contact-email" href="mailto:hello@capture.codes"
+          >hello@capture.codes</a
+        >
+        <p class="contact-note">We usually reply within a few days.</p>
+      </div>
+
+      <div class="contact-card founder">
+        <h3>Meet the founder</h3>
+        <img
+          class="founder-photo"
+          src={garethGriffiths}
+          alt="Gareth Griffiths, founder of Capture Codes"
+        />
+        <p class="founder-bio">
+          Capture Codes was founded by Gareth Griffiths to make event media
+          delivery effortless — no contact details, no manual sorting, no lost
+          photos. If you'd like to chat about the product or partner on an
+          event, connect with Gareth on LinkedIn.
+        </p>
+        <a
+          class="founder-linkedin"
+          href="https://www.linkedin.com/in/gngriffiths/"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+          Connect on LinkedIn
+        </a>
+      </div>
     </div>
   </section>
 
@@ -710,10 +726,41 @@
   .contact {
     background: #f9f9fb;
     padding: 5rem 1.5rem 4rem 1.5rem;
-    text-align: center;
   }
 
-  .contact h2 {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    background: #fff;
+    border: 1px solid rgba(26, 26, 46, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(26, 26, 46, 0.08);
+    padding: 2.75rem;
+  }
+
+  /* ── Contact info (email side) ── */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    color: #7623c4;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-info h2 {
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -725,17 +772,16 @@
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(26, 26, 46, 0.7);
-    max-width: 560px;
-    margin: 0 auto 1.5rem auto;
+    margin-bottom: 1.5rem;
   }
 
   .contact-email {
-    display: inline-block;
     font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: 700;
     color: #7623c4;
     text-decoration: none;
     padding-bottom: 0.2rem;
+    border-bottom: 2px solid rgba(118, 35, 196, 0.25);
     transition:
       color 0.2s,
       border-color 0.2s;
@@ -746,12 +792,18 @@
     border-color: #8b35de;
   }
 
+  .contact-note {
+    font-size: 0.9rem;
+    color: rgba(26, 26, 46, 0.5);
+    margin: 1.25rem 0 0 0;
+  }
+
   /* ── Founder ── */
   .founder {
-    margin: 3rem auto 0 auto;
-    max-width: 560px;
-    border-top: 1px solid rgba(26, 26, 46, 0.1);
-    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .founder h3 {
@@ -763,8 +815,8 @@
 
   .founder-photo {
     display: block;
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     border-radius: 50%;
     margin: 0 auto 1.25rem auto;
@@ -775,7 +827,7 @@
     line-height: 1.7;
     color: rgba(26, 26, 46, 0.7);
     margin: 0 auto 1.5rem auto;
-    max-width: 520px;
+    max-width: 400px;
   }
 
   .founder-linkedin {
@@ -801,5 +853,11 @@
 
   .founder-linkedin:active {
     transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
