@@ -31,6 +31,11 @@
         <p class="footer-tagline">
           Easily share photos & videos without contact details
         </p>
+        <p>
+          <a href="mailto:hello@capture.codes" class="footer-email"
+            >hello@capture.codes</a
+          >
+        </p>
       </div>
 
       <div class="footer-col footer-newsletter">
@@ -140,6 +145,17 @@
     margin: 0;
     max-width: 24rem;
     line-height: 1.6;
+  }
+
+  .footer-email {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-email:hover {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .footer-col {
