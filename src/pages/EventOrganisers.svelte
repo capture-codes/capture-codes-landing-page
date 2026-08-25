@@ -9,6 +9,7 @@
   import linkedCameraIcon from "../lib/assets/icons/decorative/linked-camera-icon.svg";
   import cinemaIcon from "../lib/assets/icons/decorative/cinema-icon.svg";
   import imageIcon from "../lib/assets/icons/decorative/imge-icon.svg";
+  import garethGriffiths from "../lib/assets/images/gareth-griffiths.jpg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
   import { BREVO_ACTION, subscribeToNewsletter } from "../lib/brevo.js";
@@ -194,6 +195,41 @@
     <a class="contact-email" href="mailto:hello@capture.codes"
       >hello@capture.codes</a
     >
+
+    <div class="founder">
+      <h3>Meet the founder</h3>
+      <img
+        class="founder-photo"
+        src={garethGriffiths}
+        alt="Gareth Griffiths, founder of Capture Codes"
+      />
+      <p class="founder-bio">
+        Capture Codes was founded by Gareth Griffiths to make event media
+        delivery effortless — no contact details, no manual sorting, no lost
+        photos. If you'd like to chat about the product or partner on an event,
+        connect with Gareth on LinkedIn.
+      </p>
+      <a
+        class="founder-linkedin"
+        href="https://www.linkedin.com/in/gngriffiths/"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+          />
+        </svg>
+        Connect on LinkedIn
+      </a>
+    </div>
   </section>
 
   <Footer />
@@ -708,5 +744,62 @@
   .contact-email:hover {
     color: #8b35de;
     border-color: #8b35de;
+  }
+
+  /* ── Founder ── */
+  .founder {
+    margin: 3rem auto 0 auto;
+    max-width: 560px;
+    border-top: 1px solid rgba(26, 26, 46, 0.1);
+    padding-top: 2.5rem;
+  }
+
+  .founder h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #393d6c;
+    margin-bottom: 1.25rem;
+  }
+
+  .founder-photo {
+    display: block;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1.25rem auto;
+  }
+
+  .founder-bio {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(26, 26, 46, 0.7);
+    margin: 0 auto 1.5rem auto;
+    max-width: 520px;
+  }
+
+  .founder-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background: #0a66c2;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background 0.2s,
+      transform 0.1s;
+  }
+
+  .founder-linkedin:hover {
+    background: #0a55a3;
+    transform: translateY(-1px);
+  }
+
+  .founder-linkedin:active {
+    transform: translateY(0);
   }
 </style>
