@@ -100,7 +100,7 @@
 
 <style>
   footer {
-    background: #331153;
+    background: #282b4a;
     color: #fff;
     padding: 4rem 1.5rem 2rem;
   }

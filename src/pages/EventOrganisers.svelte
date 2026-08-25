@@ -5,6 +5,10 @@
   import howItWorks3 from "../lib/assets/landing-pages/event-organisers/how-it-works-3.jpg";
   import musicDemo from "../lib/assets/videos/cc-music-demo.mp4";
   import logo from "../lib/assets/logos/capture-codes-full-line-logo.svg";
+  import albumIcon from "../lib/assets/icons/decorative/album-icon.svg";
+  import linkedCameraIcon from "../lib/assets/icons/decorative/linked-camera-icon.svg";
+  import cinemaIcon from "../lib/assets/icons/decorative/cinema-icon.svg";
+  import imageIcon from "../lib/assets/icons/decorative/imge-icon.svg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
   import { BREVO_ACTION, subscribeToNewsletter } from "../lib/brevo.js";
@@ -142,8 +146,8 @@
       <h1>Why Capture Codes?</h1>
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="benefit-icon">🔒</div>
-          <h3>Zero Data Collection</h3>
+          <img class="benefit-icon" src={albumIcon} alt="" />
+          <h3>No need for contact info</h3>
           <p>
             Attendees use a QR code to receive their media. The QR code links
             their account with the footage so there's no need to take phone
@@ -152,25 +156,25 @@
           </p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🔄</div>
-          <h3>Self-Service Registration</h3>
+          <img class="benefit-icon" src={linkedCameraIcon} alt="" />
+          <h3>Self-service registration</h3>
           <p>
-            Attendees generate their own unique code via the web app before or
-            during the event. No staff time required.
+            Attendees generate their own unique code via the web app during or
+            after the event. Content is then automatically linked to them.
           </p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">⚡</div>
-          <h3>Auto-Editing & Delivery</h3>
+          <img class="benefit-icon" src={cinemaIcon} alt="" />
+          <h3>Automated editing & delivery</h3>
           <p>
-            Automated framing, edits or logo insertion. Or take it up a level
+            Automated framing, edits and logo insertion. Or take it up a level
             with generative AI. Once the edits are completed the system
             automatically sends the footage.
           </p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🔒</div>
-          <h3>Beyond the Highlight Reel</h3>
+          <img class="benefit-icon" src={imageIcon} alt="" />
+          <h3>Organic growth</h3>
           <p>
             You capture hundreds of moments, but only a few make it to your
             social media. Capture Codes automatically delivers personal photos
@@ -402,7 +406,9 @@
   }
 
   .benefit-icon {
-    font-size: 2rem;
+    align-self: left;
+    width: 32px;
+    height: 32px;
     margin-bottom: 0.75rem;
   }
 
@@ -692,7 +698,6 @@
     color: #7623c4;
     text-decoration: none;
     padding-bottom: 0.2rem;
-    border-bottom: 2px solid rgba(118, 35, 196, 0.25);
     transition:
       color 0.2s,
       border-color 0.2s;
