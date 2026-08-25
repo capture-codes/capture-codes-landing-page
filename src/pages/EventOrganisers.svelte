@@ -439,6 +439,7 @@
     width: 100%;
     max-width: 540px;
     padding: 0 1.5rem 3rem 1.5rem;
+    margin-bottom: 50px;
     text-align: left;
   }
 
