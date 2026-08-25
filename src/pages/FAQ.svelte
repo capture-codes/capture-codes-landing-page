@@ -20,10 +20,10 @@
         <div class="faq-item">
           <h3>What is Capture Codes?</h3>
           <p>
-            Capture Codes is a platform that lets photographers and
-            videographers share media with attendees without collecting any
-            personal contact details. Attendees generate a unique code, flash it
-            to the camera, and receive their media automatically.
+            Capture Codes is a platform that lets event organisers share media
+            with attendees without collecting personal contact details.
+            Attendees generate a unique code, flash it to the camera, and
+            receive their media automatically.
           </p>
         </div>
         <div class="faq-item">
@@ -32,7 +32,7 @@
             An attendee generates a unique QR-style code in the web app. They
             show it to the camera at the event. The footage is uploaded to
             Capture Codes, which detects the code and automatically delivers the
-            finished video or photo to the attendee's account.
+            finished photo or video to the attendee's account.
           </p>
         </div>
         <div class="faq-item">
@@ -46,9 +46,10 @@
         <div class="faq-item">
           <h3>Is personal data collected?</h3>
           <p>
-            No phone numbers, email addresses, or personal details are required
-            for attendees to receive their media. The system uses the unique
-            code to route media.
+            When the user creates an account they can choose how to receive
+            their media. They can also choose whether to share their contact
+            details with the event organiser (even if they choose not share
+            their contact info they will still receive the media).
           </p>
         </div>
         <div class="faq-item">
@@ -165,7 +166,7 @@
 
   /* ── Slant section ── */
   .slant-section {
-    background: #7623c4;
+    background: linear-gradient(180deg, #9fa2c2 0%, #282a3f 100%);
     color: #fff;
     padding: 4rem 1.5rem;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
@@ -195,7 +196,7 @@
     font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
-    color: #f5c542;
+    color: #fff;
   }
 
   .faq-item p {
