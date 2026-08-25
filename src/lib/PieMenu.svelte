@@ -28,7 +28,7 @@
       <ul>
         <li><a href="/" onclick={close}>Home</a></li>
         <li><a href="/faq/" onclick={close}>FAQ</a></li>
-        <li><a href="/contact/" onclick={close}>Contact</a></li>
+        <li><a href="/#contact" onclick={close}>Contact</a></li>
       </ul>
     </nav>
   </div>

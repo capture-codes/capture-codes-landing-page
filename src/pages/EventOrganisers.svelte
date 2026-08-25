@@ -187,7 +187,7 @@
     </div>
   </section>
 
-  <section class="contact">
+  <section class="contact" id="contact">
     <div class="contact-grid">
       <div class="contact-card contact-info">
         <svg

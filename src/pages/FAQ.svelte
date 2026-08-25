@@ -74,7 +74,7 @@
     <div class="content-container">
       <h2>Still have questions?</h2>
       <p>Get in touch and we'll be happy to help.</p>
-      <a href="/contact/" class="cta-button">Contact Us</a>
+      <a href="/#contact" class="cta-button">Contact Us</a>
     </div>
   </section>
 

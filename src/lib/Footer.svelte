@@ -83,7 +83,7 @@
         <ul class="footer-links">
           <li><a href="/">Home</a></li>
           <li><a href="/faq/">FAQ</a></li>
-          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/#contact">Contact</a></li>
           <li><a href="/privacy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Website</a></li>
         </ul>
