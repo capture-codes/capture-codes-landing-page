@@ -29,8 +29,9 @@
           <img class="footer-logo" src={logo} alt="Capture Codes" />
         </a>
         <p class="footer-tagline">
-          Easily share photos & videos without contact details
+          Easily share photos & videos <br />without contact details
         </p>
+
         <p>
           <a href="mailto:hello@capture.codes" class="footer-email"
             >hello@capture.codes</a
@@ -39,48 +40,50 @@
       </div>
 
       <div class="footer-col footer-newsletter">
-        <h4 class="footer-col-title">Stay in the loop</h4>
-        <p class="footer-newsletter-label">
-          Signup to be notified when we launch
-        </p>
-        <form
-          class="footer-newsletter-form"
-          method="POST"
-          action={BREVO_ACTION}
-          onsubmit={handleSubmit}
-        >
-          <input
-            type="email"
-            name="EMAIL"
-            placeholder="Enter your email"
-            autocomplete="email"
-            aria-label="Email address"
-            required
-          />
-          <!-- Brevo spam trap: must stay present and empty -->
-          <input
-            type="text"
-            name="email_address_check"
-            value=""
-            class="newsletter-honeypot"
-            tabindex="-1"
-            autocomplete="off"
-            aria-hidden="true"
-          />
-          <input type="hidden" name="locale" value="en" />
-          <button type="submit" disabled={status === "sending"}>
-            {status === "sending" ? "Sending…" : "Submit"}
-          </button>
-        </form>
-        {#if status === "success" || status === "error"}
-          <p
-            class="newsletter-message"
-            class:is-error={status === "error"}
-            role={status === "error" ? "alert" : "status"}
-          >
-            {message}
+        <div class="footer-newsletter-card">
+          <h4 class="footer-col-title">Newsletter</h4>
+          <p class="footer-newsletter-label">
+            Signup to be notified when we launch
           </p>
-        {/if}
+          <form
+            class="footer-newsletter-form"
+            method="POST"
+            action={BREVO_ACTION}
+            onsubmit={handleSubmit}
+          >
+            <input
+              type="email"
+              name="EMAIL"
+              placeholder="Enter your email"
+              autocomplete="email"
+              aria-label="Email address"
+              required
+            />
+            <!-- Brevo spam trap: must stay present and empty -->
+            <input
+              type="text"
+              name="email_address_check"
+              value=""
+              class="newsletter-honeypot"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <input type="hidden" name="locale" value="en" />
+            <button type="submit" disabled={status === "sending"}>
+              {status === "sending" ? "Sending…" : "Submit"}
+            </button>
+          </form>
+          {#if status === "success" || status === "error"}
+            <p
+              class="newsletter-message"
+              class:is-error={status === "error"}
+              role={status === "error" ? "alert" : "status"}
+            >
+              {message}
+            </p>
+          {/if}
+        </div>
       </div>
 
       <nav class="footer-col footer-col--right" aria-label="Explore">
@@ -201,16 +204,37 @@
     gap: 0.6rem;
   }
 
+  .footer-newsletter .footer-col-title {
+    text-align: center;
+  }
+
+  .footer-newsletter-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    color: #fff;
+    margin: 1rem;
+  }
+
   .footer-newsletter-label {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.65);
     margin: 0;
+    text-align: center;
   }
 
   .footer-newsletter-form {
     display: flex;
     gap: 0.5rem;
     margin-top: 0.25rem;
+    padding: 0 2rem;
   }
 
   .newsletter-honeypot {
@@ -312,6 +336,25 @@
     .footer-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+
+    .footer-brand {
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-col--right {
+      text-align: center;
+    }
+
+    .footer-newsletter {
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-newsletter-card {
+      width: auto;
+      align-self: stretch;
     }
 
     .footer-newsletter-form {
