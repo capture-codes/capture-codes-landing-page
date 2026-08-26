@@ -327,8 +327,59 @@
 
   @media (max-width: 900px) {
     .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .footer-brand {
+      gap: 0.5rem;
+    }
+
+    .footer-logo {
+      width: 130px;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      max-width: none;
+    }
+
+    .footer-email {
+      font-size: 0.8rem;
+    }
+
+    .footer-col {
+      gap: 0.6rem;
+    }
+
+    .footer-links {
+      gap: 0.4rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+    }
+
+    .footer-newsletter-card {
+      margin: 0.5rem;
+      padding: 1rem;
+      gap: 0.5rem;
+    }
+
+    .footer-newsletter-label {
+      font-size: 0.8rem;
+    }
+
+    .footer-newsletter-form {
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .footer-newsletter-form button {
+      width: 100%;
+      padding: 0.6rem 1rem;
     }
   }
 
