@@ -15,8 +15,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         'event-organisers': resolve(__dirname, 'event-organisers/index.html'),
-        terms: resolve(__dirname, 'terms/index.html'),
-        privacy: resolve(__dirname, 'privacy/index.html'),
+        'terms-of-website': resolve(__dirname, 'terms-of-website/index.html'),
+        'privacy-policy': resolve(__dirname, 'privacy-policy/index.html'),
       }
     }
   }
