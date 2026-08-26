@@ -93,17 +93,20 @@
 
   <section class="video-demo">
     <h2 class="video-demo-title">Watch it in action</h2>
-    <!-- Silent, decorative loop: muted + playsinline are what allow autoplay -->
-    <video
-      class="video-demo-player"
-      src={musicDemo}
-      autoplay
-      loop
-      muted
-      playsinline
-      disablepictureinpicture
-      aria-label="Capture Codes delivering media to attendees at a music event"
-    ></video>
+    <div class="video-demo-media">
+      <!-- Silent, decorative loop: muted + playsinline are what allow autoplay -->
+      <video
+        class="video-demo-player"
+        src={musicDemo}
+        autoplay
+        loop
+        muted
+        playsinline
+        disablepictureinpicture
+        aria-label="Capture Codes delivering media to attendees at a music event"
+      ></video>
+      <p class="video-demo-note">Temporary AI video to be replaced.</p>
+    </div>
   </section>
 
   <section class="how-it-works">
@@ -414,6 +417,22 @@
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     background: #fff;
+  }
+
+  .video-demo-media {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .video-demo-note {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #9ca3af;
+    text-align: left;
   }
 
   /* ── Slant section ── */
@@ -754,7 +773,7 @@
   .contact-icon {
     width: 140px;
     height: 140px;
-    color: #7623c4;
+    color: #f5c542;
     margin-bottom: 1.25rem;
   }
 
@@ -776,7 +795,7 @@
   .contact-email {
     font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: 700;
-    color: #7623c4;
+    color: #393286;
     text-decoration: none;
     padding-bottom: 0.2rem;
     transition:
@@ -785,8 +804,8 @@
   }
 
   .contact-email:hover {
-    color: #8b35de;
-    border-color: #8b35de;
+    color: #3c4068;
+    border-color: #3c4068;
   }
 
   .contact-note {
