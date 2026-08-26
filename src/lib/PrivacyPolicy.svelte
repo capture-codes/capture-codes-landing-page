@@ -1,11 +1,14 @@
 <script>
   import { onMount } from 'svelte';
   import Footer from './Footer.svelte';
+  import PieMenu from './PieMenu.svelte';
 
   onMount(() => {
     window.scrollTo(0, 0);
   });
 </script>
+
+<PieMenu />
 
 <main class="page-wrapper">
   <div class="content-card">
@@ -87,6 +90,16 @@
 </main>
 
 <style>
+  :global(body) {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   .page-wrapper {
     background: #fff;
     min-height: 100vh;

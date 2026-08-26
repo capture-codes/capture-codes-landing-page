@@ -110,6 +110,8 @@
   footer {
     background: #282b4a;
     color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
     padding: 4rem 1.5rem 2rem;
   }
 
