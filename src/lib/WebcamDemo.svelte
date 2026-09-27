@@ -19,9 +19,6 @@
     matchesDemoCode,
   } from "./qr-scan.js";
 
-  // Only true on the dev server. Gives us a way to walk the countdown without a second device.
-  const isDev = import.meta.env.DEV;
-
   /**
    * idle → starting → live → detected → countdown → flash → captured
    * plus the dead ends: denied | unsupported | error
@@ -183,7 +180,7 @@
   }
 
   async function handleDetected(value) {
-    // Guarded because the scan loop and the dev "simulate" button share this path.
+    // Guarded because the scan loop and the "Test QR Code" button share this path.
     if (status !== "live") return;
 
     stopScanning();
@@ -257,6 +254,10 @@
     }
   }
 
+  /**
+   * Runs the normal detection flow without a QR code, so a visitor with a single device can
+   * still see the countdown and photo. Uses the payload the shared demo code encodes.
+   */
   function simulateDetection() {
     handleDetected(DEMO_QR_PAYLOAD);
   }
@@ -359,8 +360,8 @@
     {:else if showRetry}
       <button class="button primary" onclick={startCamera}>Try again</button>
     {/if}
-    {#if isDev && status === "live"}
-      <button class="button dev" onclick={simulateDetection}>
+    {#if status === "live"}
+      <button class="button simulate" onclick={simulateDetection}>
         Test QR Code
       </button>
     {/if}
@@ -647,7 +648,7 @@
     background: #2b2f57;
   }
 
-  .button.dev {
+  .button.simulate {
     border-style: dashed;
     border-color: #b9bccd;
     background: transparent;
