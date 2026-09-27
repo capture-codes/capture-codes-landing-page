@@ -8,24 +8,17 @@
   <div class="demo-inner">
     <p class="demo-eyebrow">Live demo</p>
     <h2 class="demo-heading">Try it in action</h2>
+    <a class="demo-cta" href="/demo/">Open the live demo</a>
     <p class="demo-lead">
       Try the web demo to see how it works. Use your webcam and a QR code to get
       a feel for the system.
-    </p>
-
-    <a class="demo-cta" href="/demo/">Open the live demo</a>
-
-    <p class="demo-note">
-      No signup, and nothing leaves your browser — the demo never uploads your
-      camera feed.
     </p>
   </div>
 </section>
 
 <style>
   .demo-section {
-    background:
-      radial-gradient(
+    background: radial-gradient(
         120% 100% at 50% 0%,
         rgba(118, 35, 196, 0.38) 0%,
         rgba(26, 26, 46, 0) 60%
@@ -93,12 +86,6 @@
 
   .demo-cta:active {
     transform: translateY(0);
-  }
-
-  .demo-note {
-    margin: 0;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.55);
   }
 
   @media (max-width: 560px) {

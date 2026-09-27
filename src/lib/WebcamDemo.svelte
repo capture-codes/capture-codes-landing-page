@@ -361,7 +361,7 @@
     {/if}
     {#if isDev && status === "live"}
       <button class="button dev" onclick={simulateDetection}>
-        Simulate detection (dev)
+        Test QR Code
       </button>
     {/if}
   </div>
@@ -404,6 +404,10 @@
           </button>
         </div>
         <p class="step-url">{qrPageUrl}</p>
+        <p>
+          If you do not have access to a second device you can press "Test QR
+          Code" below the camera feed.
+        </p>
       </div>
     </li>
 
