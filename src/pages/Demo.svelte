@@ -21,7 +21,7 @@
   </section>
 
   <section class="privacy">
-    <h2>About The Demo</h2>
+    <h2>Info</h2>
     <ul>
       <li>
         The live application processes footage on a server and then sends media
@@ -29,10 +29,11 @@
         recorded or stored.
       </li>
       <li>
-        The QR code is a shared demo code rather than a real attendee code, so
-        it is never linked to an account. The live application automatically
-        generates unique QR codes for each user. The QR code is what links the
-        user with their photo or video.
+        The QR code is what links each user to the person in the footage. The
+        user signs up for an account and displays their unique QR code to the
+        camera. The footage is uploaded and processed by the server. It is then
+        automatically sent to each user. This demo does not send the footage to
+        the user as it would require uploading it for processing.
       </li>
     </ul>
   </section>

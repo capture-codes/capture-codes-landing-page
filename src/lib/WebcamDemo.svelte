@@ -769,13 +769,13 @@
     word-break: break-all;
   }
 
-  /* Closing copy, kept with the widget so the demo carries its own explanation wherever it is
-     mounted. */
+  /* Explanation under the camera feed, kept with the widget so the demo carries its own copy
+     wherever it is mounted. */
   .demo-intro {
     width: 100%;
     max-width: 660px;
     margin-top: 0.5rem;
-    text-align: center;
+    text-align: left;
   }
 
   .intro {
