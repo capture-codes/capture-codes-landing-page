@@ -14,11 +14,6 @@
     </a>
     <p class="eyebrow">Live demo</p>
     <h1 class="heading">See QR detection in action</h1>
-    <p class="intro">
-      This is the same QR detection the Capture Codes pipeline runs over event
-      footage, decoded straight from the video feed. Everything happens in your
-      browser — no photo or video ever leaves your device.
-    </p>
   </header>
 
   <section class="demo-body">
@@ -26,23 +21,18 @@
   </section>
 
   <section class="privacy">
-    <h2>What this demo does (and doesn't) do</h2>
+    <h2>About The Demo</h2>
     <ul>
       <li>
-        Your camera feed is decoded locally in this tab. Nothing is uploaded,
+        The live application processes footage on a server and then sends media
+        to each user. This demo is local to your device, nothing is uploaded,
         recorded or stored.
       </li>
       <li>
-        Camera access needs your permission and a secure connection (HTTPS or
-        localhost). You can revoke it at any time from the browser's address bar.
-      </li>
-      <li>
-        Frames are decoded with <code>jsqr</code>, the same library that scans
-        real uploads, at a lower resolution than the production pipeline uses.
-      </li>
-      <li>
-        The QR code is a shared demo code rather than a real attendee code, so it
-        is never linked to an account.
+        The QR code is a shared demo code rather than a real attendee code, so
+        it is never linked to an account. The live application automatically
+        generates unique QR codes for each user. The QR code is what links the
+        user with their photo or video.
       </li>
     </ul>
   </section>
@@ -88,8 +78,7 @@
     padding: 3.5rem 1.5rem 3rem 1.5rem;
     text-align: center;
     color: #fff;
-    background:
-      radial-gradient(
+    background: radial-gradient(
         120% 100% at 50% 0%,
         rgba(118, 35, 196, 0.45) 0%,
         rgba(26, 26, 46, 0) 65%
@@ -124,13 +113,6 @@
     font-weight: 600;
     letter-spacing: 0.02em;
     text-wrap: balance;
-  }
-
-  .intro {
-    max-width: 660px;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.78);
   }
 
   .demo-body {

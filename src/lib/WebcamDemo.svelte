@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import {
+    absoluteQrPageUrl,
     COUNTDOWN_FROM,
     COUNTDOWN_STEP_MS,
     DEMO_QR_PAGE_URL,
@@ -45,10 +46,12 @@
       "Camera access was blocked. Allow the camera for this site (from the browser's address bar) and try again.",
     PermissionDeniedError:
       "Camera access was blocked. Allow the camera for this site (from the browser's address bar) and try again.",
-    NotFoundError: "No camera was found on this device. Connect one and try again.",
+    NotFoundError:
+      "No camera was found on this device. Connect one and try again.",
     NotReadableError:
       "The camera is already in use by another app or tab. Close it and try again.",
-    OverconstrainedError: "This camera doesn't support the settings the demo asked for.",
+    OverconstrainedError:
+      "This camera doesn't support the settings the demo asked for.",
     SecurityError:
       "The browser blocked camera access for security reasons. Make sure you're on HTTPS or localhost.",
   };
@@ -61,7 +64,9 @@
   const showRetry = $derived(status === "denied" || status === "error");
 
   // Absolute, so "Copy link" and the printed address are useful on the device that needs them.
-  const qrPageUrl = $derived(new URL(DEMO_QR_PAGE_URL, window.location.origin).href);
+  // On a dev host that address would be localhost, which no phone can reach, so the helper
+  // falls back to the deployed site there.
+  const qrPageUrl = $derived(absoluteQrPageUrl(window.location));
 
   // Screen readers get the same running commentary as the visual overlay.
   const liveMessage = $derived(
@@ -167,7 +172,10 @@
       if (disposed) return;
 
       const name = error?.name ?? "";
-      status = name === "NotAllowedError" || name === "PermissionDeniedError" ? "denied" : "error";
+      status =
+        name === "NotAllowedError" || name === "PermissionDeniedError"
+          ? "denied"
+          : "error";
       errorMessage =
         CAMERA_ERROR_MESSAGES[name] ??
         "The camera couldn't be started. Check that no other app is using it, then try again.";
@@ -218,7 +226,9 @@
     releasePhotoUrl();
     // Object URLs keep the blob alive until revoked; fall back to a data URL when toBlob is
     // unavailable.
-    photoUrl = blob ? URL.createObjectURL(blob) : canvas.toDataURL("image/jpeg", 0.92);
+    photoUrl = blob
+      ? URL.createObjectURL(blob)
+      : canvas.toDataURL("image/jpeg", 0.92);
     return true;
   }
 
@@ -314,7 +324,9 @@
       {#if isBusy}
         <div class="stage-overlay panel">
           <p class="panel-title">Waiting for camera access…</p>
-          <p class="panel-text">Your browser will ask for permission to use the webcam.</p>
+          <p class="panel-text">
+            Your browser will ask for permission to use the webcam.
+          </p>
         </div>
       {:else if status === "denied" || status === "error"}
         <div class="stage-overlay panel">
@@ -336,7 +348,11 @@
 
   <div class="actions">
     {#if isCaptured}
-      <a class="button primary" href={photoUrl} download="capture-codes-demo-photo.jpg">
+      <a
+        class="button primary"
+        href={photoUrl}
+        download="capture-codes-demo-photo.jpg"
+      >
         Download photo
       </a>
       <button class="button" onclick={reset}>Try again</button>
@@ -354,17 +370,33 @@
     <p class="recognised">Recognised code: <code>{detectedValue}</code></p>
   {/if}
 
+  <section class="demo-intro">
+    <p class="intro">
+      Please note two devices are needed for this demo, one to display a camera
+      feed and second to show a QR code to the camera.
+      <br />
+      <br />
+      For the demo everything happens in your browser. No photo or video ever leaves
+      your device. It is solely to demonstrate how the server searches for QR codes
+      in uploaded footage.
+    </p>
+  </section>
+
   <ol class="steps">
     <li class="step">
       <span class="step-number" aria-hidden="true">1</span>
       <div class="step-body">
         <h2 class="step-title">Get your QR code</h2>
         <p class="step-text">
-          Open the demo code below. It's the same code for everyone, so there's
-          nothing to sign up for.
+          On a second device open the following link to view a QR code.
         </p>
         <div class="step-actions">
-          <a class="step-link" href={DEMO_QR_PAGE_URL} target="_blank" rel="noopener">
+          <a
+            class="step-link"
+            href={DEMO_QR_PAGE_URL}
+            target="_blank"
+            rel="noopener"
+          >
             Open your QR code
           </a>
           <button class="copy-button" onclick={copyQrLink}>
@@ -378,10 +410,10 @@
     <li class="step">
       <span class="step-number" aria-hidden="true">2</span>
       <div class="step-body">
-        <h2 class="step-title">Visit that link on your mobile</h2>
+        <h2 class="step-title">Show the QR code to your webcam</h2>
         <p class="step-text">
-          Type the address into your phone's browser, or tap "Copy link" and send
-          it to yourself.
+          Hold your device up to the camera. Once the QR code is detected the
+          demo will count you down and take the photo.
         </p>
       </div>
     </li>
@@ -389,11 +421,8 @@
     <li class="step">
       <span class="step-number" aria-hidden="true">3</span>
       <div class="step-body">
-        <h2 class="step-title">Show the QR code to your webcam</h2>
-        <p class="step-text">
-          Hold your phone up to the camera, roughly 15–30 cm away, with the code
-          inside the frame. The demo will count you down and take the photo.
-        </p>
+        <h2 class="step-title">Photo captured</h2>
+        <p class="step-text">A photo is displayed in the browser.</p>
       </div>
     </li>
   </ol>
@@ -736,6 +765,22 @@
     word-break: break-all;
   }
 
+  /* Closing copy, kept with the widget so the demo carries its own explanation wherever it is
+     mounted. */
+  .demo-intro {
+    width: 100%;
+    max-width: 660px;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .intro {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(26, 26, 46, 0.72);
+  }
+
   @media (max-width: 560px) {
     .step {
       gap: 0.75rem;
@@ -750,5 +795,3 @@
     }
   }
 </style>
-
-

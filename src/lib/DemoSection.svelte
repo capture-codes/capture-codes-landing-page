@@ -9,31 +9,9 @@
     <p class="demo-eyebrow">Live demo</p>
     <h2 class="demo-heading">Try it in action</h2>
     <p class="demo-lead">
-      Point your webcam at a QR code and watch Capture Codes spot it, count you
-      down and take the photo — the same detection the pipeline runs over real
-      event footage.
+      Try the web demo to see how it works. Use your webcam and a QR code to get
+      a feel for the system.
     </p>
-
-    <ol class="demo-points">
-      <li>
-        <span class="point-number" aria-hidden="true">1</span>
-        <span class="point-text"
-          >Open the demo and allow camera access on this device.</span
-        >
-      </li>
-      <li>
-        <span class="point-number" aria-hidden="true">2</span>
-        <span class="point-text"
-          >Open the demo code on your phone and hold it up to the webcam.</span
-        >
-      </li>
-      <li>
-        <span class="point-number" aria-hidden="true">3</span>
-        <span class="point-text"
-          >Get your photo the moment the code is recognised.</span
-        >
-      </li>
-    </ol>
 
     <a class="demo-cta" href="/demo/">Open the live demo</a>
 
@@ -69,7 +47,8 @@
 
   .demo-eyebrow {
     margin: 0;
-    font-size: 0.8rem;
+    /* Section title: 3x the previous 0.8rem. */
+    font-size: 2.4rem;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -90,42 +69,6 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.78);
     max-width: 620px;
-  }
-
-  .demo-points {
-    list-style: none;
-    margin: 0.5rem 0 0 0;
-    padding: 0;
-    display: grid;
-    gap: 0.9rem;
-    text-align: left;
-    width: 100%;
-    max-width: 560px;
-  }
-
-  .demo-points li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.85rem;
-  }
-
-  .point-number {
-    flex: none;
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #f5c542;
-    color: #331153;
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-
-  .point-text {
-    font-size: 1rem;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.9);
   }
 
   .demo-cta {
@@ -161,6 +104,11 @@
   @media (max-width: 560px) {
     .demo-section {
       padding: 3rem 1.25rem;
+    }
+
+    /* Keep the enlarged LIVE DEMO wordmark on a single line on small screens. */
+    .demo-eyebrow {
+      letter-spacing: 0.06em;
     }
   }
 </style>

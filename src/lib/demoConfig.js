@@ -22,6 +22,40 @@ export const DEMO_QR_PAYLOAD = "https://capture.codes/invite/100001";
 export const DEMO_QR_PAGE_URL = "/demo/qr/";
 
 /**
+ * Canonical public origin of the deployed site.
+ *
+ * The QR page is opened on a phone, so the address the demo prints and copies has to be
+ * reachable from another device. Whatever host the page is actually served from (this custom
+ * domain, the github.io URL, a LAN address or a tunnel) already is, so it is used as-is. Only a
+ * loopback dev host — an address that exists solely on the machine running `npm run dev` —
+ * falls back to this origin.
+ */
+export const SITE_ORIGIN = "https://capture.codes";
+
+/** Hostnames that only resolve on the machine running the dev server. */
+const DEV_HOSTNAMES = new Set(["localhost", "127.0.0.1", "0.0.0.0", "::1", "[::1]"]);
+
+/**
+ * @param {string} hostname
+ * @returns {boolean} true when the hostname can only be reached from the dev machine.
+ */
+export function isDevHost(hostname) {
+  return !hostname || DEV_HOSTNAMES.has(hostname) || hostname.endsWith(".localhost");
+}
+
+/**
+ * Absolute, phone-reachable URL of the QR page: what the demo's "Copy link" button writes to
+ * the clipboard and what the address underneath it reads.
+ *
+ * @param {{ hostname: string, origin: string }} pageLocation Usually `window.location`.
+ * @returns {string}
+ */
+export function absoluteQrPageUrl(pageLocation) {
+  const base = isDevHost(pageLocation?.hostname) ? SITE_ORIGIN : pageLocation.origin;
+  return new URL(DEMO_QR_PAGE_URL, base).href;
+}
+
+/**
  * How a decoded value is compared with DEMO_QR_PAYLOAD:
  *   "exact"  — must equal it (default, so a ticket or poster QR won't start the countdown)
  *   "prefix" — must start with it
