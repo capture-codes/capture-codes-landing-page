@@ -27,6 +27,7 @@
     <nav class="pie-menu-nav" onclick={(e) => e.stopPropagation()}>
       <ul>
         <li><a href="/" onclick={close}>Home</a></li>
+        <li><a href="/demo/" onclick={close}>Demo</a></li>
         <li><a href="/faq/" onclick={close}>FAQ</a></li>
         <li><a href="/#contact" onclick={close}>Contact</a></li>
       </ul>

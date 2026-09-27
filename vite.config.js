@@ -16,6 +16,8 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         'event-organisers': resolve(__dirname, 'event-organisers/index.html'),
         faq: resolve(__dirname, 'faq/index.html'),
+        demo: resolve(__dirname, 'demo/index.html'),
+        'demo-qr': resolve(__dirname, 'demo/qr/index.html'),
         'terms-of-website': resolve(__dirname, 'terms-of-website/index.html'),
         'privacy-policy': resolve(__dirname, 'privacy-policy/index.html'),
       }

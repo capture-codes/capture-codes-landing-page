@@ -12,6 +12,7 @@
   import garethGriffiths from "../lib/assets/images/gareth-griffiths.jpg";
   import Footer from "../lib/Footer.svelte";
   import PieMenu from "../lib/PieMenu.svelte";
+  import DemoSection from "../lib/DemoSection.svelte";
   import { BREVO_ACTION, subscribeToNewsletter } from "../lib/brevo.js";
 
   let status = $state("idle"); // idle | sending | success | error
@@ -108,6 +109,8 @@
       <p class="video-demo-note">Temporary AI video to be replaced.</p>
     </div>
   </section>
+
+  <DemoSection />
 
   <section class="how-it-works">
     <h2>How it works</h2>
